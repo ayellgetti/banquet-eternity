@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { BrandMarkLink } from "@/components/BrandMark";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -16,10 +17,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
       <div className="container-x flex items-center justify-between h-18 py-3">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="font-display text-2xl font-bold text-gradient-gold">Eternity</span>
-          <span className="hidden sm:inline text-xs uppercase tracking-[0.2em] text-muted-foreground">Banquet</span>
-        </Link>
+        <BrandMarkLink imageClassName="h-10 sm:h-12" textClassName="text-xl sm:text-2xl" />
         <nav className="hidden md:flex items-center gap-1">
           {nav.map((n) => (
             <Link

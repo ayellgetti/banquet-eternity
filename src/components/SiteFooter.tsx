@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Instagram, MessageCircle } from "lucide-react";
 import { MAPS_URL } from "@/lib/maps";
+import { BrandMarkLink } from "@/components/BrandMark";
 
 export const SOCIAL_LINKS = {
   instagram: "https://www.instagram.com/eternitybanquet",
@@ -14,7 +15,11 @@ export function SiteFooter() {
     <footer className="bg-primary text-primary-foreground mt-20">
       <div className="container-x py-14 grid gap-10 md:grid-cols-4">
         <div>
-          <h3 className="font-display text-2xl text-gradient-gold mb-3">Eternity Banquet</h3>
+          <BrandMarkLink
+            className="mb-3"
+            imageClassName="h-12 sm:h-14 brightness-110"
+            textClassName="text-2xl"
+          />
           <p className="text-sm opacity-80 leading-relaxed italic">
             Creating memories that last forever.
           </p>

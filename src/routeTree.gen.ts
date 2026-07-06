@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as EnquiryRouteImport } from './routes/enquiry'
@@ -20,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PackagesRoute = PackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/enquiry'
     | '/events'
     | '/gallery'
+    | '/packages'
     | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/enquiry'
     | '/events'
     | '/gallery'
+    | '/packages'
     | '/sitemap.xml'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/enquiry'
     | '/events'
     | '/gallery'
+    | '/packages'
     | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   EnquiryRoute: typeof EnquiryRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
+  PackagesRoute: typeof PackagesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/packages': {
+      id: '/packages'
+      path: '/packages'
+      fullPath: '/packages'
+      preLoaderRoute: typeof PackagesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -182,6 +202,7 @@ const rootRouteChildren: RootRouteChildren = {
   EnquiryRoute: EnquiryRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
+  PackagesRoute: PackagesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport

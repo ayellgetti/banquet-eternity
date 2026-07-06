@@ -50,6 +50,7 @@ export type EventCategory =
   | "Birthday"
   | "Engagement"
   | "Baby Shower"
+  | "Naming Ceremony"
   | "Anniversary"
   | "Corporate Event"
   | "Other";
@@ -84,6 +85,12 @@ export const eventCategories: { name: EventCategory; image: string; images: stri
     image: babyshowerStage1,
     images: babyShowerImages,
     description: "Pastel-perfect baby shower arrangements with custom themes and dedicated planning.",
+  },
+  {
+    name: "Naming Ceremony",
+    image: babyshowerStage2,
+    images: [babyshowerStage2, babyshowerBoySign, babyshowerGirlSign, stage],
+    description: "Traditional naamkaran celebrations with cradle décor, floral setups and warm family gatherings.",
   },
   {
     name: "Anniversary",
@@ -124,6 +131,9 @@ export const galleryImages: { src: string; category: EventCategory | "Venue"; al
   { src: babyshowerStage2, category: "Baby Shower", alt: "Gender reveal baby shower setup" },
   { src: babyshowerBoySign, category: "Baby Shower", alt: "It's a boy baby shower sign" },
   { src: babyshowerGirlSign, category: "Baby Shower", alt: "It's a girl baby shower sign" },
+  { src: babyshowerStage2, category: "Naming Ceremony", alt: "Naming ceremony stage with cradle décor" },
+  { src: babyshowerBoySign, category: "Naming Ceremony", alt: "Naming ceremony welcome sign" },
+  { src: stage, category: "Naming Ceremony", alt: "Naming ceremony celebration setup" },
   { src: anniversary, category: "Anniversary", alt: "Anniversary table setting" },
   { src: corporate, category: "Corporate Event", alt: "Corporate event" },
   { src: other, category: "Other", alt: "Cultural celebration" },

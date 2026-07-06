@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Instagram, MessageCircle } from "lucide-react";
-import { MAPS_URL } from "@/lib/maps";
+import { MAPS_URL, VENUES } from "@/lib/maps";
 import { BrandMarkLink } from "@/components/BrandMark";
 
 export const SOCIAL_LINKS = {
@@ -23,11 +23,12 @@ export function SiteFooter() {
           <p className="text-sm opacity-80 leading-relaxed italic">
             Creating memories that last forever.
           </p>
-          <p className="text-xs opacity-70 mt-2">Capacity 250–400 guests.</p>
+          <p className="text-xs opacity-70 mt-2">Borivali &amp; Charkop — Mumbai</p>
         </div>
         <div>
           <h4 className="font-semibold mb-3 text-accent">Quick Links</h4>
           <ul className="space-y-2 text-sm opacity-90">
+            <li><Link to="/packages" className="hover:text-accent">Packages</Link></li>
             <li><Link to="/about" className="hover:text-accent">About</Link></li>
             <li><Link to="/events" className="hover:text-accent">Events</Link></li>
             <li><Link to="/gallery" className="hover:text-accent">Gallery</Link></li>
@@ -39,7 +40,20 @@ export function SiteFooter() {
           <ul className="space-y-2 text-sm opacity-90">
             <li className="flex gap-2"><Phone className="size-4 mt-0.5 shrink-0" /> Akash Y — +91 99304 13300</li>
             <li className="flex gap-2"><Phone className="size-4 mt-0.5 shrink-0" /> Harshal J — +91 99301 43300</li>
-            <li className="flex gap-2"><MapPin className="size-4 mt-0.5 shrink-0" /> Plot No. 93-A, 2nd Floor, Bank Of Baroda, Sahyadri Nagar, Charkop, Kandivali West, Mumbai 400068</li>
+            {VENUES.map((venue) => (
+              <li key={venue.id} className="flex gap-2">
+                <MapPin className="size-4 mt-0.5 shrink-0" />
+                <a
+                  href={venue.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  <span className="font-medium text-primary-foreground/95">{venue.name}</span>
+                  <span className="opacity-80"> — {venue.tagline}, {venue.area}</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>

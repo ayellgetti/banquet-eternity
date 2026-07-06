@@ -1,7 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { Info } from "lucide-react";
 import { Section } from "@/components/Section";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { eventCategories } from "@/lib/events";
+import {
+  COMMON_PLATE_ITEMS,
+  PACKAGE_INCLUDES,
+  PLATE_PACKAGES,
+  formatPlatePackageLabel,
+} from "@/lib/menuPackages";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/enquiry")({
@@ -17,7 +25,6 @@ export const Route = createFileRoute("/enquiry")({
 });
 
 const timeSlots = ["Morning (8 AM – 12 PM)", "Afternoon (12 PM – 4 PM)", "Evening (5 PM – 9 PM)", "Night (7 PM – 11 PM)"];
-const venues = ["Main Banquet Hall", "Garden Lawn", "Rooftop Terrace", "Private Dining Room"];
 const sources = ["Google Search", "Instagram", "Facebook", "Friend / Family", "Wedding Planner", "Walk-in", "Other"];
 const budgets = ["Under ₹2 Lakhs", "₹2 – 5 Lakhs", "₹5 – 10 Lakhs", "₹10 – 20 Lakhs", "Above ₹20 Lakhs"];
 
@@ -50,10 +57,13 @@ function Enquiry() {
           <Field label="Number of guests" name="guests" type="number" min={250} max={400} placeholder="250" required />
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-          <SelectField label="Venue" name="venue" required placeholder="Select venue" options={venues} />
-          <SelectField label="How did they find us?" name="source" required placeholder="Select source" options={sources} />
-          <SelectField label="Approximate Budget" name="budget" placeholder="Select budget range" options={budgets} />
+        <div className="mt-5 space-y-5">
+          <PremiumPackageAlert />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <MenuPackageField />
+            <SelectField label="How did they find us?" name="source" required placeholder="Select source" options={sources} />
+            <SelectField label="Approximate Budget" name="budget" placeholder="Select budget range" options={budgets} />
+          </div>
         </div>
 
         <div className="grid gap-2 mt-5">
@@ -91,6 +101,64 @@ function Field({
         max={max}
         className="h-11 px-3 rounded-lg border border-input bg-background"
       />
+    </div>
+  );
+}
+
+function PremiumPackageAlert() {
+  return (
+    <Alert className="border-accent/35 bg-secondary/50 text-foreground rounded-xl">
+      <Info className="size-4 text-accent" aria-hidden />
+      <AlertTitle className="font-display text-base text-foreground">
+        Menu package selection is required
+      </AlertTitle>
+      <AlertDescription className="space-y-3 text-foreground/85">
+        <p>
+          Please choose a premium package below before submitting your enquiry. All packages require a
+          minimum of <strong className="font-semibold text-foreground">100 guests</strong>.
+        </p>
+        <div>
+          <p className="mb-1.5 font-medium text-foreground">What&apos;s included with Bronze, Silver &amp; Gold:</p>
+          <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3 text-sm leading-relaxed">
+            {PACKAGE_INCLUDES.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span className="text-accent shrink-0" aria-hidden>•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <p className="text-sm">
+          <span className="font-medium text-foreground">On every plate:</span>{" "}
+          {COMMON_PLATE_ITEMS.join(" · ")}.
+          {" "}Elite is a custom-build option — hall rent and decoration are quoted separately.
+        </p>
+      </AlertDescription>
+    </Alert>
+  );
+}
+
+function MenuPackageField() {
+  return (
+    <div className="grid gap-2">
+      <label className="text-sm font-medium">
+        Menu Package<span className="text-accent"> *</span>
+      </label>
+      <select
+        required
+        name="menuPackage"
+        defaultValue=""
+        className="h-11 px-3 rounded-lg border border-input bg-background"
+      >
+        <option value="" disabled>
+          Select menu package
+        </option>
+        {PLATE_PACKAGES.map((pkg) => (
+          <option key={pkg.id} value={formatPlatePackageLabel(pkg)}>
+            {formatPlatePackageLabel(pkg)}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Section";
+import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 import exterior from "@/assets/exterior.jpg";
-import { Award, HeartHandshake, Sparkles, Users } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About — Eternity Banquet" },
-      { name: "description", content: "Learn about Eternity Banquet — a decade of hosting weddings and events in Mumbai with luxury décor and impeccable service." },
+      { name: "description", content: "Learn about Eternity Banquet — hosting weddings and events in Mumbai with luxury décor, premium catering and world-class amenities." },
       { property: "og:title", content: "About Eternity Banquet" },
-      { property: "og:description", content: "A decade of creating unforgettable celebrations." },
+      { property: "og:description", content: "A legacy of creating unforgettable celebrations." },
     ],
   }),
   component: About,
@@ -38,7 +38,7 @@ function About() {
               birthdays, anniversaries and corporate milestones.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mt-4">
-              With a grand hall accommodating <strong className="text-foreground">250 to 400 guests</strong>,
+              With grand halls accommodating up to <strong className="text-foreground">1000 guests</strong>,
               in-house catering, themed décor and a dedicated planning team, we make every event seamless,
               joyful and unforgettable.
             </p>
@@ -47,27 +47,7 @@ function About() {
         </div>
       </Section>
 
-      <section className="bg-secondary py-20">
-        <div className="container-x">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-primary">Why choose us</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { i: Users, t: "250–400 Guests", d: "Spacious layout that scales for intimate or grand events." },
-              { i: Sparkles, t: "Bespoke Décor", d: "Themed setups tailored to your vision." },
-              { i: Award, t: "Award-winning Service", d: "A trained team that anticipates every need." },
-              { i: HeartHandshake, t: "End-to-end Planning", d: "One point of contact from booking to send-off." },
-            ].map((c) => (
-              <div key={c.t} className="bg-background rounded-2xl p-6 shadow-[var(--shadow-soft)]">
-                <div className="size-12 rounded-full grid place-items-center bg-accent/15 text-accent mb-3"><c.i className="size-6" /></div>
-                <h3 className="font-display text-xl font-bold text-primary">{c.t}</h3>
-                <p className="text-muted-foreground text-sm mt-2">{c.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyChooseEternity className="bg-secondary" />
     </>
   );
 }

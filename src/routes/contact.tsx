@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Section } from "@/components/Section";
-import { MapPin, Phone, Clock, Instagram } from "lucide-react";
+import { Phone, Clock, Instagram, MapPin } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { toast } from "sonner";
 import { SOCIAL_LINKS } from "@/components/SiteFooter";
-import { MAPS_EMBED_URL, MAPS_URL } from "@/lib/maps";
+import { VenuesSection } from "@/components/VenueLocations";
+import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
 import qrInstagram from "@/assets/qr-instagram.png";
 import qrMaps from "@/assets/qr-maps.png";
 import qrWhatsapp from "@/assets/qr-whatsapp.png";
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Eternity Banquet" },
-      { name: "description", content: "Call, WhatsApp or visit Eternity Banquet in Kandivali West, Mumbai. We're open every day, 9am to 9pm." },
+      { name: "description", content: `Contact Eternity Banquet — ${HERITAGE_YEARS_BORIVALI} years in Borivali (Garjato Marathi) and our new Charkop hall in Kandivali West. Open daily 9am–9pm.` },
       { property: "og:title", content: "Contact Eternity Banquet" },
       { property: "og:description", content: "Get in touch — we'd love to host your next celebration." },
     ],
@@ -30,121 +31,113 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const [submitting, setSubmitting] = useState(false);
   return (
-    <Section eyebrow="Reach Us" title="Contact" subtitle="We'd love to hear from you — drop by, call, or send a message." center>
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="space-y-5">
-          <div className="flex gap-4 bg-card p-5 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-            <div className="size-12 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent">
-              <MapPin className="size-6" />
-            </div>
-            <div>
-              <h3 className="font-semibold text-primary">Address</h3>
-              <p className="text-muted-foreground mt-1">Plot No. 93-A, 2nd Floor, Bank Of Baroda, Kandivali Co-op Govt Industrial Estate Ltd, Opp Sahyadri Nagar Hanuman Temple, Charkop Gaon, Kandivali West, Mumbai, Maharashtra 400068</p>
-              <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline">
-                Open in Google Maps →
-              </a>
-            </div>
-          </div>
+    <>
+      <Section
+        eyebrow="Our Locations"
+        title="Visit either of our venues"
+        subtitle={`Trusted in Borivali for ${HERITAGE_YEARS_BORIVALI} years — and now welcoming guests at our newly opened Charkop hall.`}
+        center
+      >
+        <VenuesSection showIntro title="" subtitle="" />
+      </Section>
 
-          <div className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] overflow-hidden">
-            <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border">
-              <div className="flex items-center gap-4 p-5">
-                <div className="size-12 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent">
-                  <Clock className="size-6" />
+      <Section eyebrow="Reach Us" title="Contact" subtitle="Call, WhatsApp or send us a message — we're happy to help with either venue." center>
+        <div className="grid lg:grid-cols-2 gap-10">
+          <div className="space-y-5">
+            <div className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] overflow-hidden">
+              <div className="grid sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-border">
+                <div className="flex items-center gap-4 p-5">
+                  <div className="size-12 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent">
+                    <Clock className="size-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Hours</p>
+                    <p className="font-semibold text-primary mt-0.5">9:00 AM – 9:00 PM</p>
+                    <p className="text-sm text-muted-foreground mt-0.5">Open every day</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Hours</p>
-                  <p className="font-semibold text-primary mt-0.5">9:00 AM – 9:00 PM</p>
-                  <p className="text-sm text-muted-foreground mt-0.5">Open every day</p>
+                <div className="flex items-center gap-4 p-5 bg-accent/5">
+                  <div className="size-12 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent">
+                    <Phone className="size-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Quick Call</p>
+                    <p className="font-semibold text-primary mt-0.5">Mon – Sun</p>
+                    <p className="text-sm text-muted-foreground mt-0.5">Call or WhatsApp anytime</p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 p-5 bg-accent/5">
-                <div className="size-12 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent">
-                  <Phone className="size-6" />
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Quick Call</p>
-                  <p className="font-semibold text-primary mt-0.5">Mon – Sun</p>
-                  <p className="text-sm text-muted-foreground mt-0.5">Call or WhatsApp anytime</p>
-                </div>
-              </div>
-            </div>
 
-            <div className="border-t border-border p-5">
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-4">Contact Numbers</p>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {CONTACTS.map((p) => (
-                  <div
-                    key={p.name}
-                    className="group flex flex-col gap-3 p-4 rounded-xl border border-border bg-background/60 hover:border-accent/50 hover:bg-background transition"
-                  >
-                    <div className="flex items-center gap-3 min-w-0">
-                      <div className="size-11 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent font-semibold text-sm">
-                        {p.initials}
+              <div className="border-t border-border p-5">
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-4">Contact Numbers</p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {CONTACTS.map((p) => (
+                    <div
+                      key={p.name}
+                      className="group flex flex-col gap-3 p-4 rounded-xl border border-border bg-background/60 hover:border-accent/50 hover:bg-background transition"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="size-11 shrink-0 rounded-full grid place-items-center bg-accent/15 text-accent font-semibold text-sm">
+                          {p.initials}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-semibold text-primary truncate">{p.name}</p>
+                          <a
+                            href={`tel:+91${p.phone}`}
+                            className="text-sm text-muted-foreground hover:text-accent transition truncate block"
+                          >
+                            {p.display}
+                          </a>
+                        </div>
                       </div>
-                      <div className="min-w-0">
-                        <p className="font-semibold text-primary truncate">{p.name}</p>
+                      <div className="grid grid-cols-2 gap-2">
                         <a
                           href={`tel:+91${p.phone}`}
-                          className="text-sm text-muted-foreground hover:text-accent transition truncate block"
+                          aria-label={`Call ${p.name}`}
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-primary hover:border-accent hover:text-accent transition"
                         >
-                          {p.display}
+                          <Phone className="size-4 shrink-0" />
+                          Call
+                        </a>
+                        <a
+                          href={`https://wa.me/91${p.phone}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`WhatsApp ${p.name}`}
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium text-[#128C7E] hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition"
+                        >
+                          <WhatsAppIcon className="size-4 shrink-0" />
+                          WhatsApp
                         </a>
                       </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href={`tel:+91${p.phone}`}
-                        aria-label={`Call ${p.name}`}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium text-primary hover:border-accent hover:text-accent transition"
-                      >
-                        <Phone className="size-4 shrink-0" />
-                        Call
-                      </a>
-                      <a
-                        href={`https://wa.me/91${p.phone}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`WhatsApp ${p.name}`}
-                        className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-[#25D366]/30 bg-[#25D366]/10 px-3 py-2 text-sm font-medium text-[#128C7E] hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition"
-                      >
-                        <WhatsAppIcon className="size-4 shrink-0" />
-                        WhatsApp
-                      </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-card p-6 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
+              <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold text-center mb-5">Scan to Connect</p>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { icon: MapPin, label: "Location", href: SOCIAL_LINKS.maps, qr: qrMaps },
+                  { icon: WhatsAppIcon, label: "WhatsApp", href: SOCIAL_LINKS.whatsapp, qr: qrWhatsapp },
+                  { icon: Instagram, label: "Instagram", href: SOCIAL_LINKS.instagram, qr: qrInstagram },
+                ].map((q) => (
+                  <a key={q.label} href={q.href} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-2">
+                    <div className="aspect-square w-full rounded-xl overflow-hidden bg-background p-2 border border-border group-hover:border-accent transition">
+                      <img src={q.qr} alt={`${q.label} QR code`} loading="lazy" className="size-full object-contain" />
                     </div>
-                  </div>
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent transition">
+                      <q.icon className="size-4" /> {q.label}
+                    </div>
+                  </a>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="bg-card p-5 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-            <h3 className="font-semibold text-primary mb-3 flex items-center gap-2"><MapPin className="size-5 text-accent" /> Landmarks</h3>
-            <ul className="space-y-1.5 text-muted-foreground text-sm">
-              <li>• Bank Of Baroda (in the building)</li>
-              <li>• Opp. Hanuman Temple, Sahyadri Nagar</li>
-              <li>• Near Golden Leaf Pure Veg Restaurant</li>
-            </ul>
-          </div>
-
-          <div className="bg-card p-5 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-            <h3 className="font-semibold text-primary mb-3 flex items-center gap-2">
-              <MapPin className="size-5 text-accent" /> Map
-            </h3>
-            <div className="rounded-xl overflow-hidden border border-border h-64">
-              <iframe
-                title="Eternity Banquet location"
-                src={MAPS_EMBED_URL}
-                className="size-full border-0"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="space-y-5">
+          <div className="space-y-5">
           <form
             className="bg-card p-6 md:p-8 rounded-2xl shadow-[var(--shadow-soft)] border border-border h-fit"
             onSubmit={(e) => {
@@ -186,29 +179,10 @@ function Contact() {
               </button>
             </div>
           </form>
-
-          <div className="bg-card p-6 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-            <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold text-center mb-5">Scan to Connect</p>
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { icon: MapPin, label: "Location", href: SOCIAL_LINKS.maps, qr: qrMaps },
-                { icon: WhatsAppIcon, label: "WhatsApp", href: SOCIAL_LINKS.whatsapp, qr: qrWhatsapp },
-                { icon: Instagram, label: "Instagram", href: SOCIAL_LINKS.instagram, qr: qrInstagram },
-              ].map((q) => (
-                <a key={q.label} href={q.href} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-2">
-                  <div className="aspect-square w-full rounded-xl overflow-hidden bg-background p-2 border border-border group-hover:border-accent transition">
-                    <img src={q.qr} alt={`${q.label} QR code`} loading="lazy" className="size-full object-contain" />
-                  </div>
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent transition">
-                    <q.icon className="size-4" /> {q.label}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
-      </div>
-    </Section>
+        </div>
+      </Section>
+    </>
   );
 }
 

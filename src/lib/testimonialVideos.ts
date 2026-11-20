@@ -12,7 +12,7 @@ export type TestimonialItem = {
 
 const byEvent = (event: string) => testimonials.find((t) => t.event === event);
 
-/** One list for the site: a video and/or a written comment per event. */
+/** One card per reel; a guest comment is attached only where we have one. */
 export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
   { event: "Baby Shower", video: "/videos/baby-shower.mp4", ...byEvent("Baby Shower") },
   {
@@ -45,6 +45,4 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     video: "/videos/birthday-reel-aug-2.mp4",
     caption: "A birthday celebration at Eternity Banquet",
   },
-  // Written-only comments (no video yet).
-  ...testimonials.filter((t) => t.event !== "Baby Shower"),
 ];

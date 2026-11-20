@@ -24,6 +24,9 @@ export const Route = createFileRoute("/enquiry")({
   component: Enquiry,
 });
 
+// Number that receives enquiries via WhatsApp (country code + number, no "+").
+const ENQUIRY_WHATSAPP = "919930413300";
+
 const timeSlots = ["Morning (8 AM – 12 PM)", "Afternoon (12 PM – 4 PM)", "Evening (5 PM – 9 PM)", "Night (7 PM – 11 PM)"];
 const sources = ["Google Search", "Instagram", "Facebook", "Friend / Family", "Wedding Planner", "Walk-in", "Other"];
 const budgets = ["Under ₹2 Lakhs", "₹2 – 5 Lakhs", "₹5 – 10 Lakhs", "₹10 – 20 Lakhs", "Above ₹20 Lakhs"];
@@ -36,12 +39,35 @@ function Enquiry() {
         className="max-w-6xl mx-auto bg-card p-6 md:p-8 rounded-2xl shadow-[var(--shadow-soft)] border border-border"
         onSubmit={(e) => {
           e.preventDefault();
+          const form = e.currentTarget;
+          const data = new FormData(form);
+          const get = (k: string) => String(data.get(k) ?? "").trim() || "-";
+          const text = [
+            "*New enquiry — Eternity Banquet*",
+            `Name: ${get("name")}`,
+            `Phone: ${get("phone")}`,
+            `Event: ${get("event")}`,
+            `Date: ${get("date")}`,
+            `Time slot: ${get("time")}`,
+            `Guests: ${get("guests")}`,
+            `Menu package: ${get("menuPackage")}`,
+            `Heard about us via: ${get("source")}`,
+            `Budget: ${get("budget")}`,
+            `Message: ${get("message")}`,
+          ].join("\n");
           setSubmitting(true);
-          setTimeout(() => {
-            (e.target as HTMLFormElement).reset();
+          const url = `https://wa.me/${ENQUIRY_WHATSAPP}?text=${encodeURIComponent(text)}`;
+          const win = window.open(url, "_blank", "noopener,noreferrer");
+          if (!win) {
             setSubmitting(false);
-            toast.success("Enquiry submitted!", { description: "We'll get back to you within 24 hours." });
-          }, 600);
+            toast.error("Couldn't open WhatsApp", {
+              description: `Please allow pop-ups, or call us on +${ENQUIRY_WHATSAPP.slice(2)}.`,
+            });
+            return;
+          }
+          form.reset();
+          setSubmitting(false);
+          toast.success("Almost done!", { description: "Press Send in WhatsApp to deliver your enquiry." });
         }}
       >
         <div className="grid md:grid-cols-2 gap-5">
@@ -78,7 +104,7 @@ function Enquiry() {
 
         <div className="flex justify-center mt-6">
           <button type="submit" disabled={submitting} className="btn-hero disabled:opacity-60">
-            {submitting ? "Sending..." : "Submit Enquiry"}
+            {submitting ? "Opening WhatsApp..." : "Send Enquiry on WhatsApp"}
           </button>
         </div>
       </form>

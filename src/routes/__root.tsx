@@ -27,7 +27,9 @@ function NotFoundComponent() {
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist.
         </p>
-        <Link to="/" className="mt-6 inline-block btn-hero">Go home</Link>
+        <Link to="/" className="mt-6 inline-block btn-hero">
+          Go home
+        </Link>
       </div>
     </div>
   );
@@ -48,12 +50,17 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
-            onClick={() => { router.invalidate(); reset(); }}
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
             className="btn-hero"
           >
             Try again
           </button>
-          <a href="/" className="btn-outline-gold">Go home</a>
+          <a href="/" className="btn-outline-gold">
+            Go home
+          </a>
         </div>
       </div>
     </div>
@@ -66,10 +73,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Eternity Banquet — Elegant Venue for Weddings & Events" },
-      { name: "description", content: "Premium banquet hall in Mumbai hosting weddings, birthdays, engagements and corporate events for 250–400 guests." },
+      {
+        name: "description",
+        content:
+          "Premium banquet hall in Mumbai hosting weddings, birthdays, engagements and corporate events for 250–400 guests.",
+      },
       { name: "author", content: "Eternity Banquet" },
       { property: "og:title", content: "Eternity Banquet" },
-      { property: "og:description", content: "Elegant banquet hall for life's biggest celebrations." },
+      {
+        property: "og:description",
+        content: "Elegant banquet hall for life's biggest celebrations.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       ...(absoluteUrl(heroHall) ? [{ property: "og:image", content: absoluteUrl(heroHall) }] : []),

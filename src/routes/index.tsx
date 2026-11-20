@@ -1,5 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Users, Sparkles, MapPin, ArrowRight, Utensils, Music, Camera, Building2 } from "lucide-react";
+import {
+  Users,
+  Sparkles,
+  MapPin,
+  ArrowRight,
+  Utensils,
+  Music,
+  Camera,
+  Building2,
+} from "lucide-react";
 import heroHall from "@/assets/hero-hall.webp";
 import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
@@ -14,9 +23,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Eternity Banquet — Premium Wedding & Event Venues in Mumbai" },
-      { name: "description", content: "Two banquet halls in Mumbai — Eternity Hospitality (Garjato Marathi) in Borivali West and the newly opened Eternity Banquet in Charkop, Kandivali West." },
+      {
+        name: "description",
+        content:
+          "Two banquet halls in Mumbai — Eternity Hospitality (Garjato Marathi) in Borivali West and the newly opened Eternity Banquet in Charkop, Kandivali West.",
+      },
       { property: "og:title", content: "Eternity Banquet" },
-      { property: "og:description", content: "Elegant venue for unforgettable celebrations — 250 to 400 guests." },
+      {
+        property: "og:description",
+        content: "Elegant venue for unforgettable celebrations — 250 to 400 guests.",
+      },
     ],
   }),
   component: Home,
@@ -43,14 +59,18 @@ function Home() {
             Where every <span className="text-gradient-gold">celebration</span> becomes a memory.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl">
-            {HERITAGE_YEARS_BORIVALI} years of trusted celebrations at Eternity Hospitality in Borivali —
-            and now our grand new hall, Eternity Banquet, is open in Charkop, Kandivali West.
+            {HERITAGE_YEARS_BORIVALI} years of trusted celebrations at Eternity Hospitality in
+            Borivali — and now our grand new hall, Eternity Banquet, is open in Charkop, Kandivali
+            West.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link to="/enquiry" className="btn-hero">
               Book Your Date <ArrowRight className="size-4" />
             </Link>
-            <Link to="/gallery" className="btn-outline-gold text-white border-white/70 hover:bg-white/10">
+            <Link
+              to="/gallery"
+              className="btn-outline-gold text-white border-white/70 hover:bg-white/10"
+            >
               View Gallery
             </Link>
           </div>
@@ -58,11 +78,18 @@ function Home() {
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl">
             {[
               { icon: Users, label: "250–400", sub: "Charkop capacity" },
-              { icon: Building2, label: `${HERITAGE_YEARS_BORIVALI} Years`, sub: "Serving Borivali" },
+              {
+                icon: Building2,
+                label: `${HERITAGE_YEARS_BORIVALI} Years`,
+                sub: "Serving Borivali",
+              },
               { icon: Utensils, label: "Multi-cuisine", sub: "In-house catering" },
               { icon: MapPin, label: "2 Venues", sub: "Borivali & Charkop" },
             ].map((s) => (
-              <div key={s.label} className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-4">
+              <div
+                key={s.label}
+                className="backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-4"
+              >
                 <s.icon className="size-5 text-accent mb-2" />
                 <div className="font-semibold text-lg">{s.label}</div>
                 <div className="text-xs text-white/70">{s.sub}</div>
@@ -86,9 +113,21 @@ function Home() {
       <section className="bg-secondary py-16">
         <div className="container-x grid md:grid-cols-3 gap-6">
           {[
-            { icon: Utensils, t: "In-house Catering", d: "Multi-cuisine menus crafted by experienced chefs — vegetarian, Jain & live counters." },
-            { icon: Music, t: "Sound & Lighting", d: "Professional A/V setup, DJ console, stage lighting and uplighters included." },
-            { icon: Camera, t: "Decor & Planning", d: "Themed décor, mandap design and an event manager to handle every detail." },
+            {
+              icon: Utensils,
+              t: "In-house Catering",
+              d: "Multi-cuisine menus crafted by experienced chefs — vegetarian, Jain & live counters.",
+            },
+            {
+              icon: Music,
+              t: "Sound & Lighting",
+              d: "Professional A/V setup, DJ console, stage lighting and uplighters included.",
+            },
+            {
+              icon: Camera,
+              t: "Decor & Planning",
+              d: "Themed décor, mandap design and an event manager to handle every detail.",
+            },
           ].map((s) => (
             <div key={s.t} className="bg-background rounded-2xl p-7 shadow-[var(--shadow-soft)]">
               <div className="size-12 rounded-full grid place-items-center bg-accent/15 text-accent mb-4">
@@ -134,7 +173,9 @@ function Home() {
       <section className="bg-secondary py-20">
         <div className="container-x">
           <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">Kind Words</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
+              Kind Words
+            </p>
             <h2 className="text-4xl md:text-5xl font-bold text-primary">Loved by our guests</h2>
           </div>
           <TestimonialsCarousel />

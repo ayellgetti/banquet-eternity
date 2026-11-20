@@ -8,7 +8,11 @@ export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Eternity Banquet" },
-      { name: "description", content: "Browse photos of weddings, birthdays, engagements, baby showers, anniversaries and corporate events at Eternity Banquet." },
+      {
+        name: "description",
+        content:
+          "Browse photos of weddings, birthdays, engagements, baby showers, anniversaries and corporate events at Eternity Banquet.",
+      },
       { property: "og:title", content: "Eternity Banquet Gallery" },
       { property: "og:description", content: "Moments from our most memorable events." },
     ],
@@ -23,16 +27,17 @@ function Gallery() {
   const [active, setActive] = useState<Filter>("All");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
-  const items = active === "All" ? galleryImages : galleryImages.filter((g) => g.category === active);
+  const items =
+    active === "All" ? galleryImages : galleryImages.filter((g) => g.category === active);
 
   const close = useCallback(() => setLightboxIdx(null), []);
   const next = useCallback(
     () => setLightboxIdx((i) => (i === null ? i : (i + 1) % items.length)),
-    [items.length]
+    [items.length],
   );
   const prev = useCallback(
     () => setLightboxIdx((i) => (i === null ? i : (i - 1 + items.length) % items.length)),
-    [items.length]
+    [items.length],
   );
 
   // Auto-advance when open and not paused
@@ -57,12 +62,20 @@ function Gallery() {
   const current = lightboxIdx !== null ? items[lightboxIdx] : null;
 
   return (
-    <Section eyebrow="Our Work" title="Gallery" subtitle="Filter by event type to see moments from our most memorable celebrations." center>
+    <Section
+      eyebrow="Our Work"
+      title="Gallery"
+      subtitle="Filter by event type to see moments from our most memorable celebrations."
+      center
+    >
       <div className="flex flex-wrap justify-center gap-2 mb-10">
         {filters.map((f) => (
           <button
             key={f}
-            onClick={() => { setActive(f); setLightboxIdx(null); }}
+            onClick={() => {
+              setActive(f);
+              setLightboxIdx(null);
+            }}
             className={`px-5 py-2 rounded-full text-sm font-medium border transition ${
               active === f
                 ? "bg-primary text-primary-foreground border-primary"
@@ -91,7 +104,9 @@ function Gallery() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition" />
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white text-left opacity-0 group-hover:opacity-100 transition">
-              <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">{g.category}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                {g.category}
+              </p>
               <p className="font-medium">{g.alt}</p>
             </div>
           </button>
@@ -104,7 +119,10 @@ function Gallery() {
           className="fixed inset-0 z-50 bg-black/90 grid place-items-center p-4 animate-in fade-in duration-300"
         >
           <button
-            onClick={(e) => { e.stopPropagation(); close(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              close();
+            }}
             aria-label="Close"
             className="absolute top-4 right-4 size-11 grid place-items-center rounded-full bg-white/15 hover:bg-white/25 text-white"
           >
@@ -112,7 +130,10 @@ function Gallery() {
           </button>
 
           <button
-            onClick={(e) => { e.stopPropagation(); prev(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
             aria-label="Previous"
             className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 size-12 grid place-items-center rounded-full bg-white/85 hover:bg-white text-primary shadow"
           >
@@ -132,14 +153,21 @@ function Gallery() {
               className="max-h-[90vh] max-w-[95vw] rounded-xl animate-in fade-in duration-500"
             />
             <div className="absolute bottom-0 left-0 right-0 rounded-b-xl p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-              <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">{current.category}</p>
+              <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                {current.category}
+              </p>
               <p className="font-medium">{current.alt}</p>
-              <p className="text-xs text-white/70 mt-1">{(lightboxIdx ?? 0) + 1} / {items.length}</p>
+              <p className="text-xs text-white/70 mt-1">
+                {(lightboxIdx ?? 0) + 1} / {items.length}
+              </p>
             </div>
           </div>
 
           <button
-            onClick={(e) => { e.stopPropagation(); next(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
             aria-label="Next"
             className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 size-12 grid place-items-center rounded-full bg-white/85 hover:bg-white text-primary shadow"
           >

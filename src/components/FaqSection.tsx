@@ -1,6 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { Section } from "@/components/Section";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { PACKAGE_INCLUDES } from "@/lib/menuPackages";
 import { VENUES } from "@/lib/maps";
 
@@ -21,8 +26,9 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "What is included in the menu packages?",
     a: (
       <>
-        Bronze, Silver and Gold include: {PACKAGE_INCLUDES.join(", ")}. All packages need a minimum of
-        100 guests. Elite is a build-your-own menu, with hall rent and decoration quoted separately.
+        Bronze, Silver and Gold include: {PACKAGE_INCLUDES.join(", ")}. All packages need a minimum
+        of 100 guests. Elite is a build-your-own menu, with hall rent and decoration quoted
+        separately.
       </>
     ),
   },
@@ -42,7 +48,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
         <Link to="/enquiry" className="text-accent underline underline-offset-4">
           enquiry
         </Link>{" "}
-        with your date, event type and guest count, or call or WhatsApp us. We respond within 24 hours.
+        with your date, event type and guest count, or call or WhatsApp us. We respond within 24
+        hours.
       </>
     ),
   },
@@ -55,7 +62,9 @@ export function FaqSection() {
         {FAQS.map((f, i) => (
           <AccordionItem key={f.q} value={`faq-${i}`}>
             <AccordionTrigger className="text-left text-base md:text-lg">{f.q}</AccordionTrigger>
-            <AccordionContent className="text-muted-foreground leading-relaxed">{f.a}</AccordionContent>
+            <AccordionContent className="text-muted-foreground leading-relaxed">
+              {f.a}
+            </AccordionContent>
           </AccordionItem>
         ))}
       </Accordion>

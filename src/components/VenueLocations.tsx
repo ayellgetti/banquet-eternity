@@ -18,11 +18,17 @@ export function VenuesIntro({ className }: { className?: string }) {
           </p>
           <p className="text-muted-foreground leading-relaxed">
             We have been serving families and celebrations in Borivali for{" "}
-            <strong className="font-semibold text-foreground">{HERITAGE_YEARS_BORIVALI} years</strong>{" "}
-            at <strong className="font-semibold text-foreground">Eternity Hospitality (Garjato Marathi)</strong>.
-            Our grand new hall —{" "}
-            <strong className="font-semibold text-foreground">Eternity Banquet, Charkop</strong> — is now open
-            in Kandivali West with the same warmth, catering and event expertise you already know.
+            <strong className="font-semibold text-foreground">
+              {HERITAGE_YEARS_BORIVALI} years
+            </strong>{" "}
+            at{" "}
+            <strong className="font-semibold text-foreground">
+              Eternity Hospitality (Garjato Marathi)
+            </strong>
+            . Our grand new hall —{" "}
+            <strong className="font-semibold text-foreground">Eternity Banquet, Charkop</strong> —
+            is now open in Kandivali West with the same warmth, catering and event expertise you
+            already know.
           </p>
         </div>
       </div>
@@ -73,7 +79,9 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
         <ul className="space-y-1 text-sm text-muted-foreground">
           {venue.landmarks.map((item) => (
             <li key={item} className="flex gap-2">
-              <span className="text-accent shrink-0" aria-hidden>•</span>
+              <span className="text-accent shrink-0" aria-hidden>
+                •
+              </span>
               <span>{item}</span>
             </li>
           ))}
@@ -95,7 +103,9 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
       </div>
 
       {showMap && (
-        <div className={cn("border-t border-border bg-muted/20", compact ? "h-52" : "aspect-[16/10]")}>
+        <div
+          className={cn("border-t border-border bg-muted/20", compact ? "h-52" : "aspect-[16/10]")}
+        >
           <iframe
             title={`${venue.name} — ${venue.area}`}
             src={venue.embedUrl}
@@ -127,8 +137,12 @@ export function VenuesSection({
     <div className="space-y-8">
       {(title || subtitle) && (
         <div className={subtitle ? "max-w-3xl" : "text-center max-w-3xl mx-auto"}>
-          {title && <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">{title}</h2>}
-          {subtitle && <p className="text-muted-foreground text-lg mt-3 leading-relaxed">{subtitle}</p>}
+          {title && (
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">{title}</h2>
+          )}
+          {subtitle && (
+            <p className="text-muted-foreground text-lg mt-3 leading-relaxed">{subtitle}</p>
+          )}
         </div>
       )}
       {showIntro && <VenuesIntro />}

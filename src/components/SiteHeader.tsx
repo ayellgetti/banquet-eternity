@@ -13,13 +13,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { BrandMarkLink } from "@/components/BrandMark";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
 type NavItem = {
@@ -69,19 +63,14 @@ function DesktopNavLink({
         featured && !isActive && "text-accent hover:text-primary",
       )}
     >
-      <span
-        className={cn(
-          "relative z-10",
-          isActive && "text-gradient-gold",
-        )}
-      >
-        {item.label}
-      </span>
+      <span className={cn("relative z-10", isActive && "text-gradient-gold")}>{item.label}</span>
       <span
         aria-hidden
         className={cn(
           "pointer-events-none absolute inset-x-4 -bottom-0.5 h-[3px] rounded-full bg-gradient-to-r from-transparent via-accent to-transparent transition-all duration-200",
-          isActive ? "opacity-100 scale-100" : "opacity-0 scale-75 group-hover:opacity-90 group-hover:scale-100",
+          isActive
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-75 group-hover:opacity-90 group-hover:scale-100",
         )}
       />
     </Link>
@@ -134,11 +123,12 @@ function MobileNavLink({
         >
           <Icon className="size-5" strokeWidth={isActive ? 2.25 : 2} />
         </span>
-        <span className={cn("tracking-tight", isActive && "text-gradient-gold")}>
-          {item.label}
-        </span>
+        <span className={cn("tracking-tight", isActive && "text-gradient-gold")}>{item.label}</span>
         {isActive && (
-          <span className="ml-auto size-2.5 rounded-full bg-accent shadow-[0_0_8px_oklch(0.74_0.13_80/0.6)]" aria-hidden />
+          <span
+            className="ml-auto size-2.5 rounded-full bg-accent shadow-[0_0_8px_oklch(0.74_0.13_80/0.6)]"
+            aria-hidden
+          />
         )}
       </Link>
     </SheetClose>
@@ -169,15 +159,9 @@ export function SiteHeader() {
       <div className="h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent" />
 
       <div className="container-x flex items-center justify-between gap-4 py-3 sm:py-3.5 min-h-[4.25rem] sm:min-h-[4.75rem]">
-        <BrandMarkLink
-          imageClassName="h-9 sm:h-11"
-          textClassName="text-lg sm:text-2xl"
-        />
+        <BrandMarkLink imageClassName="h-9 sm:h-11" textClassName="text-lg sm:text-2xl" />
 
-        <nav
-          className="hidden lg:flex items-center gap-0.5 xl:gap-1"
-          aria-label="Main navigation"
-        >
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main navigation">
           {mainNav.map((item) => (
             <DesktopNavLink
               key={item.to}
@@ -187,17 +171,10 @@ export function SiteHeader() {
             />
           ))}
 
-          <span
-            className="mx-1 hidden xl:block h-5 w-px bg-border"
-            aria-hidden
-          />
+          <span className="mx-1 hidden xl:block h-5 w-px bg-border" aria-hidden />
 
           {exploreNav.map((item) => (
-            <DesktopNavLink
-              key={item.to}
-              item={item}
-              isActive={isActive(item.to, item.exact)}
-            />
+            <DesktopNavLink key={item.to} item={item} isActive={isActive(item.to, item.exact)} />
           ))}
 
           <Link
@@ -229,10 +206,7 @@ export function SiteHeader() {
                 aria-expanded={open}
               >
                 <Menu
-                  className={cn(
-                    "size-5 transition-all duration-200",
-                    open && "scale-0 opacity-0",
-                  )}
+                  className={cn("size-5 transition-all duration-200", open && "scale-0 opacity-0")}
                 />
                 <X
                   className={cn(
@@ -250,10 +224,7 @@ export function SiteHeader() {
               <SheetTitle className="sr-only">Site navigation</SheetTitle>
 
               <div className="border-b border-border/80 bg-secondary/30 px-5 py-5">
-                <BrandMarkLink
-                  imageClassName="h-10"
-                  textClassName="text-xl"
-                />
+                <BrandMarkLink imageClassName="h-10" textClassName="text-xl" />
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   Weddings, celebrations &amp; corporate events in Mumbai.
                 </p>

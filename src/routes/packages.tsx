@@ -56,7 +56,10 @@ function PriceTable({
       </div>
       <ul className="divide-y divide-border">
         {rows.map((row) => (
-          <li key={row.name} className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 px-5 py-3.5">
+          <li
+            key={row.name}
+            className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 px-5 py-3.5"
+          >
             <div className="min-w-0">
               <p className="font-medium text-foreground">{row.name}</p>
               {row.description && (
@@ -169,10 +172,10 @@ function Packages() {
           <AlertTitle className="font-display text-base">How our packages work</AlertTitle>
           <AlertDescription className="space-y-2 text-foreground/85">
             <p>
-              <strong className="text-foreground">Bronze, Silver &amp; Gold</strong> are all-inclusive
-              per-plate packages (min. 100 guests). Hall rent, AC, chairs with seat covers, basic
-              stage decoration, stage lighting, stage sofa and more are included — you only pay extra
-              for optional décor, add-ons or dishes beyond your package limits.
+              <strong className="text-foreground">Bronze, Silver &amp; Gold</strong> are
+              all-inclusive per-plate packages (min. 100 guests). Hall rent, AC, chairs with seat
+              covers, basic stage decoration, stage lighting, stage sofa and more are included — you
+              only pay extra for optional décor, add-ons or dishes beyond your package limits.
             </p>
             <p>
               <strong className="text-foreground">Elite</strong> lets you build a custom menu at

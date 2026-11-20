@@ -20,9 +20,15 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Eternity Banquet" },
-      { name: "description", content: `Contact Eternity Banquet — ${HERITAGE_YEARS_BORIVALI} years in Borivali (Garjato Marathi) and our new Charkop hall in Kandivali West. Open daily 9am–9pm.` },
+      {
+        name: "description",
+        content: `Contact Eternity Banquet — ${HERITAGE_YEARS_BORIVALI} years in Borivali (Garjato Marathi) and our new Charkop hall in Kandivali West. Open daily 9am–9pm.`,
+      },
       { property: "og:title", content: "Contact Eternity Banquet" },
-      { property: "og:description", content: "Get in touch — we'd love to host your next celebration." },
+      {
+        property: "og:description",
+        content: "Get in touch — we'd love to host your next celebration.",
+      },
     ],
   }),
   component: Contact,
@@ -41,7 +47,12 @@ function Contact() {
         <VenuesSection showIntro title="" subtitle="" />
       </Section>
 
-      <Section eyebrow="Reach Us" title="Contact" subtitle="Call, WhatsApp or send us a message — we're happy to help with either venue." center>
+      <Section
+        eyebrow="Reach Us"
+        title="Contact"
+        subtitle="Call, WhatsApp or send us a message — we're happy to help with either venue."
+        center
+      >
         <div className="grid lg:grid-cols-2 gap-10">
           <div className="space-y-5">
             <div className="bg-card rounded-2xl border border-border shadow-[var(--shadow-soft)] overflow-hidden">
@@ -51,7 +62,9 @@ function Contact() {
                     <Clock className="size-6" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Hours</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                      Hours
+                    </p>
                     <p className="font-semibold text-primary mt-0.5">9:00 AM – 9:00 PM</p>
                     <p className="text-sm text-muted-foreground mt-0.5">Open every day</p>
                   </div>
@@ -61,7 +74,9 @@ function Contact() {
                     <Phone className="size-6" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">Quick Call</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                      Quick Call
+                    </p>
                     <p className="font-semibold text-primary mt-0.5">Mon – Sun</p>
                     <p className="text-sm text-muted-foreground mt-0.5">Call or WhatsApp anytime</p>
                   </div>
@@ -69,7 +84,9 @@ function Contact() {
               </div>
 
               <div className="border-t border-border p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-4">Contact Numbers</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-semibold mb-4">
+                  Contact Numbers
+                </p>
                 <div className="grid sm:grid-cols-2 gap-3">
                   {CONTACTS.map((p) => (
                     <div
@@ -117,16 +134,39 @@ function Contact() {
             </div>
 
             <div className="bg-card p-6 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-              <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold text-center mb-5">Scan to Connect</p>
+              <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold text-center mb-5">
+                Scan to Connect
+              </p>
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { icon: MapPin, label: "Location", href: SOCIAL_LINKS.maps, qr: qrMaps },
-                  { icon: WhatsAppIcon, label: "WhatsApp", href: SOCIAL_LINKS.whatsapp, qr: qrWhatsapp },
-                  { icon: Instagram, label: "Instagram", href: SOCIAL_LINKS.instagram, qr: qrInstagram },
+                  {
+                    icon: WhatsAppIcon,
+                    label: "WhatsApp",
+                    href: SOCIAL_LINKS.whatsapp,
+                    qr: qrWhatsapp,
+                  },
+                  {
+                    icon: Instagram,
+                    label: "Instagram",
+                    href: SOCIAL_LINKS.instagram,
+                    qr: qrInstagram,
+                  },
                 ].map((q) => (
-                  <a key={q.label} href={q.href} target="_blank" rel="noopener noreferrer" className="group flex flex-col items-center gap-2">
+                  <a
+                    key={q.label}
+                    href={q.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col items-center gap-2"
+                  >
                     <div className="aspect-square w-full rounded-xl overflow-hidden bg-background p-2 border border-border group-hover:border-accent transition">
-                      <img src={q.qr} alt={`${q.label} QR code`} loading="lazy" className="size-full object-contain" />
+                      <img
+                        src={q.qr}
+                        alt={`${q.label} QR code`}
+                        loading="lazy"
+                        className="size-full object-contain"
+                      />
                     </div>
                     <div className="flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent transition">
                       <q.icon className="size-4" /> {q.label}
@@ -138,48 +178,62 @@ function Contact() {
           </div>
 
           <div className="space-y-5">
-          <form
-            className="bg-card p-6 md:p-8 rounded-2xl shadow-[var(--shadow-soft)] border border-border h-fit"
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitting(true);
-              setTimeout(() => {
-                (e.target as HTMLFormElement).reset();
-                setSubmitting(false);
-                toast.success("Message sent!", { description: "We'll get back to you shortly." });
-              }, 600);
-            }}
-          >
-            <h3 className="text-xl font-semibold text-primary mb-1">Send us a message</h3>
-            <p className="text-sm text-muted-foreground mb-5">Quick questions, feedback or general enquiries.</p>
+            <form
+              className="bg-card p-6 md:p-8 rounded-2xl shadow-[var(--shadow-soft)] border border-border h-fit"
+              onSubmit={(e) => {
+                e.preventDefault();
+                setSubmitting(true);
+                setTimeout(() => {
+                  (e.target as HTMLFormElement).reset();
+                  setSubmitting(false);
+                  toast.success("Message sent!", { description: "We'll get back to you shortly." });
+                }, 600);
+              }}
+            >
+              <h3 className="text-xl font-semibold text-primary mb-1">Send us a message</h3>
+              <p className="text-sm text-muted-foreground mb-5">
+                Quick questions, feedback or general enquiries.
+              </p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Name" name="name" placeholder="Full name" required />
-              <Field label="Phone" name="phone" type="tel" placeholder="9876543210" required />
-            </div>
-            <div className="mt-4">
-              <Field label="Email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
-            <div className="mt-4">
-              <Field label="Subject" name="subject" placeholder="How can we help?" required />
-            </div>
-            <div className="mt-4 grid gap-2">
-              <label className="text-sm font-medium">Message<span className="text-accent"> *</span></label>
-              <textarea
-                required
-                name="message"
-                rows={5}
-                placeholder="Write your message here..."
-                className="px-3 py-2 rounded-lg border border-input bg-background resize-none"
-              />
-            </div>
-            <div className="mt-6 flex justify-end">
-              <button type="submit" disabled={submitting} className="btn-hero disabled:opacity-60">
-                {submitting ? "Sending..." : "Send Message"}
-              </button>
-            </div>
-          </form>
-        </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <Field label="Name" name="name" placeholder="Full name" required />
+                <Field label="Phone" name="phone" type="tel" placeholder="9876543210" required />
+              </div>
+              <div className="mt-4">
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+              <div className="mt-4">
+                <Field label="Subject" name="subject" placeholder="How can we help?" required />
+              </div>
+              <div className="mt-4 grid gap-2">
+                <label className="text-sm font-medium">
+                  Message<span className="text-accent"> *</span>
+                </label>
+                <textarea
+                  required
+                  name="message"
+                  rows={5}
+                  placeholder="Write your message here..."
+                  className="px-3 py-2 rounded-lg border border-input bg-background resize-none"
+                />
+              </div>
+              <div className="mt-6 flex justify-end">
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="btn-hero disabled:opacity-60"
+                >
+                  {submitting ? "Sending..." : "Send Message"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </Section>
     </>
@@ -187,11 +241,24 @@ function Contact() {
 }
 
 function Field({
-  label, name, type = "text", required, placeholder,
-}: { label: string; name: string; type?: string; required?: boolean; placeholder?: string }) {
+  label,
+  name,
+  type = "text",
+  required,
+  placeholder,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+}) {
   return (
     <div className="grid gap-2">
-      <label className="text-sm font-medium">{label}{required && <span className="text-accent"> *</span>}</label>
+      <label className="text-sm font-medium">
+        {label}
+        {required && <span className="text-accent"> *</span>}
+      </label>
       <input
         name={name}
         type={type}

@@ -55,42 +55,53 @@ export type EventCategory =
   | "Corporate Event"
   | "Other";
 
-export const eventCategories: { name: EventCategory; image: string; images: string[]; description: string }[] = [
+export const eventCategories: {
+  name: EventCategory;
+  image: string;
+  images: string[];
+  description: string;
+}[] = [
   {
     name: "Wedding",
     image: weddingStage1,
     images: weddingImages,
-    description: "Make your big day timeless with a grand mandap, floral décor, and unforgettable hospitality.",
+    description:
+      "Make your big day timeless with a grand mandap, floral décor, and unforgettable hospitality.",
   },
   {
     name: "Haldi and Sangeet",
     image: haldiSangeetStage,
     images: haldiSangeetImages,
-    description: "Vibrant haldi ceremonies and lively sangeet nights with colorful décor, music, and dance floor setups.",
+    description:
+      "Vibrant haldi ceremonies and lively sangeet nights with colorful décor, music, and dance floor setups.",
   },
   {
     name: "Birthday",
     image: birthday,
     images: [birthday, stage, hall, dining],
-    description: "From milestone birthdays to kids' themed parties — colorful, joyful celebrations done right.",
+    description:
+      "From milestone birthdays to kids' themed parties — colorful, joyful celebrations done right.",
   },
   {
     name: "Engagement",
     image: engagement,
     images: [engagement, stage, dining, hall],
-    description: "Romantic, intimate setups with elegant lighting to mark the start of your forever.",
+    description:
+      "Romantic, intimate setups with elegant lighting to mark the start of your forever.",
   },
   {
     name: "Baby Shower",
     image: babyshowerStage1,
     images: babyShowerImages,
-    description: "Pastel-perfect baby shower arrangements with custom themes and dedicated planning.",
+    description:
+      "Pastel-perfect baby shower arrangements with custom themes and dedicated planning.",
   },
   {
     name: "Naming Ceremony",
     image: babyshowerStage2,
     images: [babyshowerStage2, babyshowerBoySign, babyshowerGirlSign, stage],
-    description: "Traditional naamkaran celebrations with cradle décor, floral setups and warm family gatherings.",
+    description:
+      "Traditional naamkaran celebrations with cradle décor, floral setups and warm family gatherings.",
   },
   {
     name: "Anniversary",
@@ -108,7 +119,8 @@ export const eventCategories: { name: EventCategory; image: string; images: stri
     name: "Other",
     image: other,
     images: [other, hall, stage, exterior],
-    description: "Festivals, reunions, social gatherings — share your vision and we'll bring it to life.",
+    description:
+      "Festivals, reunions, social gatherings — share your vision and we'll bring it to life.",
   },
 ];
 
@@ -123,15 +135,31 @@ export const galleryImages: { src: string; category: EventCategory | "Venue"; al
   { src: weddingHall1, category: "Wedding", alt: "Wedding guest seating arrangement" },
   { src: weddingHall2, category: "Wedding", alt: "Banquet hall ready for wedding guests" },
   { src: weddingInvitation, category: "Wedding", alt: "Wedding celebration at Eternity Banquet" },
-  { src: haldiSangeetStage, category: "Haldi and Sangeet", alt: "Haldi ceremony stage with marigold décor" },
-  { src: haldiSangeetHall, category: "Haldi and Sangeet", alt: "Banquet hall seating for sangeet night" },
+  {
+    src: haldiSangeetStage,
+    category: "Haldi and Sangeet",
+    alt: "Haldi ceremony stage with marigold décor",
+  },
+  {
+    src: haldiSangeetHall,
+    category: "Haldi and Sangeet",
+    alt: "Banquet hall seating for sangeet night",
+  },
   { src: birthday, category: "Birthday", alt: "Birthday celebration" },
   { src: engagement, category: "Engagement", alt: "Engagement ceremony" },
-  { src: babyshowerStage1, category: "Baby Shower", alt: "Baby shower stage with boy and girl décor" },
+  {
+    src: babyshowerStage1,
+    category: "Baby Shower",
+    alt: "Baby shower stage with boy and girl décor",
+  },
   { src: babyshowerStage2, category: "Baby Shower", alt: "Gender reveal baby shower setup" },
   { src: babyshowerBoySign, category: "Baby Shower", alt: "It's a boy baby shower sign" },
   { src: babyshowerGirlSign, category: "Baby Shower", alt: "It's a girl baby shower sign" },
-  { src: babyshowerStage2, category: "Naming Ceremony", alt: "Naming ceremony stage with cradle décor" },
+  {
+    src: babyshowerStage2,
+    category: "Naming Ceremony",
+    alt: "Naming ceremony stage with cradle décor",
+  },
   { src: babyshowerBoySign, category: "Naming Ceremony", alt: "Naming ceremony welcome sign" },
   { src: stage, category: "Naming Ceremony", alt: "Naming ceremony celebration setup" },
   { src: anniversary, category: "Anniversary", alt: "Anniversary table setting" },

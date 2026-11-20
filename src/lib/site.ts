@@ -16,7 +16,10 @@ export const venueJsonLd = () => ({
   "@context": "https://schema.org",
   "@graph": VENUES.map((v) => ({
     "@type": "EventVenue",
-    name: v.id === "charkop" ? "Eternity Banquet — Charkop" : "Eternity Hospitality (Garjato Marathi) — Borivali",
+    name:
+      v.id === "charkop"
+        ? "Eternity Banquet — Charkop"
+        : "Eternity Hospitality (Garjato Marathi) — Borivali",
     url: SITE_URL || undefined,
     telephone: PHONE,
     hasMap: v.mapsUrl,

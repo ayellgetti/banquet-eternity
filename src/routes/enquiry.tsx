@@ -16,7 +16,11 @@ export const Route = createFileRoute("/enquiry")({
   head: () => ({
     meta: [
       { title: "Enquiry — Eternity Banquet" },
-      { name: "description", content: "Send us your event enquiry. We'll get back to you within 24 hours with availability, packages and a custom quote." },
+      {
+        name: "description",
+        content:
+          "Send us your event enquiry. We'll get back to you within 24 hours with availability, packages and a custom quote.",
+      },
       { property: "og:title", content: "Send an Enquiry — Eternity Banquet" },
       { property: "og:description", content: "Book your date with Mumbai's finest banquet." },
     ],
@@ -27,14 +31,38 @@ export const Route = createFileRoute("/enquiry")({
 // Number that receives enquiries via WhatsApp (country code + number, no "+").
 const ENQUIRY_WHATSAPP = "919930413300";
 
-const timeSlots = ["Morning (8 AM – 12 PM)", "Afternoon (12 PM – 4 PM)", "Evening (5 PM – 9 PM)", "Night (7 PM – 11 PM)"];
-const sources = ["Google Search", "Instagram", "Facebook", "Friend / Family", "Wedding Planner", "Walk-in", "Other"];
-const budgets = ["Under ₹2 Lakhs", "₹2 – 5 Lakhs", "₹5 – 10 Lakhs", "₹10 – 20 Lakhs", "Above ₹20 Lakhs"];
+const timeSlots = [
+  "Morning (8 AM – 12 PM)",
+  "Afternoon (12 PM – 4 PM)",
+  "Evening (5 PM – 9 PM)",
+  "Night (7 PM – 11 PM)",
+];
+const sources = [
+  "Google Search",
+  "Instagram",
+  "Facebook",
+  "Friend / Family",
+  "Wedding Planner",
+  "Walk-in",
+  "Other",
+];
+const budgets = [
+  "Under ₹2 Lakhs",
+  "₹2 – 5 Lakhs",
+  "₹5 – 10 Lakhs",
+  "₹10 – 20 Lakhs",
+  "Above ₹20 Lakhs",
+];
 
 function Enquiry() {
   const [submitting, setSubmitting] = useState(false);
   return (
-    <Section eyebrow="Get in Touch" title="Send an enquiry" subtitle="Tell us about your event and we'll respond within 24 hours." center>
+    <Section
+      eyebrow="Get in Touch"
+      title="Send an enquiry"
+      subtitle="Tell us about your event and we'll respond within 24 hours."
+      center
+    >
       <form
         className="max-w-6xl mx-auto bg-card p-6 md:p-8 rounded-2xl shadow-[var(--shadow-soft)] border border-border"
         onSubmit={(e) => {
@@ -67,7 +95,9 @@ function Enquiry() {
           }
           form.reset();
           setSubmitting(false);
-          toast.success("Almost done!", { description: "Press Send in WhatsApp to deliver your enquiry." });
+          toast.success("Almost done!", {
+            description: "Press Send in WhatsApp to deliver your enquiry.",
+          });
         }}
       >
         <div className="grid md:grid-cols-2 gap-5">
@@ -76,19 +106,49 @@ function Enquiry() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
-          <SelectField label="Event type" name="event" required placeholder="Select event"
-            options={eventCategories.map((e) => e.name)} />
+          <SelectField
+            label="Event type"
+            name="event"
+            required
+            placeholder="Select event"
+            options={eventCategories.map((e) => e.name)}
+          />
           <Field label="Event date" name="date" type="date" required />
-          <SelectField label="Time slot" name="time" required placeholder="Select time slot" options={timeSlots} />
-          <Field label="Number of guests" name="guests" type="number" min={250} max={400} placeholder="250" required />
+          <SelectField
+            label="Time slot"
+            name="time"
+            required
+            placeholder="Select time slot"
+            options={timeSlots}
+          />
+          <Field
+            label="Number of guests"
+            name="guests"
+            type="number"
+            min={250}
+            max={400}
+            placeholder="250"
+            required
+          />
         </div>
 
         <div className="mt-5 space-y-5">
           <PremiumPackageAlert />
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             <MenuPackageField />
-            <SelectField label="How did they find us?" name="source" required placeholder="Select source" options={sources} />
-            <SelectField label="Approximate Budget" name="budget" placeholder="Select budget range" options={budgets} />
+            <SelectField
+              label="How did they find us?"
+              name="source"
+              required
+              placeholder="Select source"
+              options={sources}
+            />
+            <SelectField
+              label="Approximate Budget"
+              name="budget"
+              placeholder="Select budget range"
+              options={budgets}
+            />
           </div>
         </div>
 
@@ -113,11 +173,30 @@ function Enquiry() {
 }
 
 function Field({
-  label, name, type = "text", required, placeholder, className = "", min, max,
-}: { label: string; name: string; type?: string; required?: boolean; placeholder?: string; className?: string; min?: number; max?: number }) {
+  label,
+  name,
+  type = "text",
+  required,
+  placeholder,
+  className = "",
+  min,
+  max,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+  className?: string;
+  min?: number;
+  max?: number;
+}) {
   return (
     <div className={`grid gap-2 ${className}`}>
-      <label className="text-sm font-medium">{label}{required && <span className="text-accent"> *</span>}</label>
+      <label className="text-sm font-medium">
+        {label}
+        {required && <span className="text-accent"> *</span>}
+      </label>
       <input
         name={name}
         type={type}
@@ -140,15 +219,19 @@ function PremiumPackageAlert() {
       </AlertTitle>
       <AlertDescription className="space-y-3 text-foreground/85">
         <p>
-          Please choose a premium package below before submitting your enquiry. All packages require a
-          minimum of <strong className="font-semibold text-foreground">100 guests</strong>.
+          Please choose a premium package below before submitting your enquiry. All packages require
+          a minimum of <strong className="font-semibold text-foreground">100 guests</strong>.
         </p>
         <div>
-          <p className="mb-1.5 font-medium text-foreground">What&apos;s included with Bronze, Silver &amp; Gold:</p>
+          <p className="mb-1.5 font-medium text-foreground">
+            What&apos;s included with Bronze, Silver &amp; Gold:
+          </p>
           <ul className="grid gap-1 sm:grid-cols-2 lg:grid-cols-3 text-sm leading-relaxed">
             {PACKAGE_INCLUDES.map((item) => (
               <li key={item} className="flex gap-2">
-                <span className="text-accent shrink-0" aria-hidden>•</span>
+                <span className="text-accent shrink-0" aria-hidden>
+                  •
+                </span>
                 <span>{item}</span>
               </li>
             ))}
@@ -156,8 +239,8 @@ function PremiumPackageAlert() {
         </div>
         <p className="text-sm">
           <span className="font-medium text-foreground">On every plate:</span>{" "}
-          {COMMON_PLATE_ITEMS.join(" · ")}.
-          {" "}Elite is a custom-build option — hall rent and decoration are quoted separately.
+          {COMMON_PLATE_ITEMS.join(" · ")}. Elite is a custom-build option — hall rent and
+          decoration are quoted separately.
         </p>
       </AlertDescription>
     </Alert>
@@ -190,14 +273,36 @@ function MenuPackageField() {
 }
 
 function SelectField({
-  label, name, required, placeholder, options,
-}: { label: string; name: string; required?: boolean; placeholder: string; options: string[] }) {
+  label,
+  name,
+  required,
+  placeholder,
+  options,
+}: {
+  label: string;
+  name: string;
+  required?: boolean;
+  placeholder: string;
+  options: string[];
+}) {
   return (
     <div className="grid gap-2">
-      <label className="text-sm font-medium">{label}{required && <span className="text-accent"> *</span>}</label>
-      <select required={required} name={name} defaultValue="" className="h-11 px-3 rounded-lg border border-input bg-background">
-        <option value="" disabled>{placeholder}</option>
-        {options.map((o) => <option key={o}>{o}</option>)}
+      <label className="text-sm font-medium">
+        {label}
+        {required && <span className="text-accent"> *</span>}
+      </label>
+      <select
+        required={required}
+        name={name}
+        defaultValue=""
+        className="h-11 px-3 rounded-lg border border-input bg-background"
+      >
+        <option value="" disabled>
+          {placeholder}
+        </option>
+        {options.map((o) => (
+          <option key={o}>{o}</option>
+        ))}
       </select>
     </div>
   );

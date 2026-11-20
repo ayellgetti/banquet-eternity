@@ -180,9 +180,10 @@ export const HALL_RENT = {
 } as const;
 
 export const TIME_SLOTS = [
-  { label: "Morning 08:00 AM – 02:00 PM", hours: 6 },
-  { label: "Evening 04:00 PM – 10:00 PM", hours: 6 },
-  { label: "Full Day 10:00 AM – 10:00 PM", hours: 12 },
+  { label: "08:00 AM – 02:00 PM", hours: 6 },
+  { label: "04:00 PM – 10:00 PM", hours: 6 },
+  { label: "08:00 AM – 08:00 PM", hours: 12 },
+  { label: "10:00 AM – 10:00 PM", hours: 12 },
 ] as const;
 
 export const ADD_ON_SERVICES: { name: string; price: string; note?: string }[] = [

@@ -38,6 +38,16 @@ const exploreNav: NavItem[] = [
   { to: "/testimonials", label: "Testimonials", icon: Quote },
 ];
 
+/** Slim top bar: Enquiry is the Book Now button; Testimonials live on the home page and footer. */
+const desktopNav: NavItem[] = [
+  { to: "/", label: "Home", icon: Home, exact: true },
+  { to: "/about", label: "About", icon: UserRound },
+  { to: "/events", label: "Events", icon: Sparkles },
+  { to: "/packages", label: "Packages", icon: Receipt },
+  { to: "/gallery", label: "Gallery", icon: Images },
+  { to: "/contact", label: "Contact", icon: Phone },
+];
+
 function useActivePath() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (to: string, exact?: boolean) =>
@@ -58,7 +68,7 @@ function DesktopNavLink({
       to={item.to}
       activeOptions={{ exact: item.exact }}
       className={cn(
-        "group relative px-3.5 py-2.5 xl:px-4 rounded-full font-display text-[0.95rem] xl:text-base font-semibold tracking-wide transition-all duration-200",
+        "group relative whitespace-nowrap px-2.5 py-2.5 xl:px-4 rounded-full font-display text-[0.95rem] xl:text-base font-semibold tracking-wide transition-all duration-200",
         isActive
           ? "text-primary bg-accent/15 shadow-[inset_0_0_0_1px_oklch(0.74_0.13_80/0.35)]"
           : "text-foreground/80 hover:text-primary hover:bg-accent/8",
@@ -164,7 +174,7 @@ export function SiteHeader() {
         <BrandMarkLink plain imageClassName="h-14 sm:h-[4.5rem]" />
 
         <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main navigation">
-          {mainNav.map((item) => (
+          {desktopNav.map((item) => (
             <DesktopNavLink
               key={item.to}
               item={item}
@@ -173,15 +183,9 @@ export function SiteHeader() {
             />
           ))}
 
-          <span className="mx-1 hidden xl:block h-5 w-px bg-border" aria-hidden />
-
-          {exploreNav.map((item) => (
-            <DesktopNavLink key={item.to} item={item} isActive={isActive(item.to, item.exact)} />
-          ))}
-
           <Link
             to="/enquiry"
-            className="ml-2 xl:ml-4 btn-hero text-sm py-2.5 px-5 xl:px-6 hover:[transform:translateY(-2px)] hover:[box-shadow:var(--shadow-elegant)]"
+            className="ml-2 xl:ml-6 btn-hero whitespace-nowrap text-sm py-2.5 px-6 hover:[transform:translateY(-2px)] hover:[box-shadow:var(--shadow-elegant)]"
           >
             Book Now
           </Link>

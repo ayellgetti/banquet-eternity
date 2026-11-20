@@ -32,10 +32,10 @@ export const Route = createFileRoute("/enquiry")({
 const ENQUIRY_WHATSAPP = "919930413300";
 
 const timeSlots = [
-  "Morning (8 AM – 12 PM)",
-  "Afternoon (12 PM – 4 PM)",
-  "Evening (5 PM – 9 PM)",
-  "Night (7 PM – 11 PM)",
+  "08:00 AM – 02:00 PM",
+  "04:00 PM – 10:00 PM",
+  "08:00 AM – 08:00 PM",
+  "10:00 AM – 10:00 PM",
 ];
 const sources = [
   "Google Search",
@@ -46,13 +46,7 @@ const sources = [
   "Walk-in",
   "Other",
 ];
-const budgets = [
-  "Under ₹2 Lakhs",
-  "₹2 – 5 Lakhs",
-  "₹5 – 10 Lakhs",
-  "₹10 – 20 Lakhs",
-  "Above ₹20 Lakhs",
-];
+const budgets = ["₹0 – ₹30,000", "₹30,000 – ₹80,000", "₹80,000 – ₹1.5 Lakhs", "₹1.5 – ₹2 Lakhs"];
 
 function Enquiry() {
   const [submitting, setSubmitting] = useState(false);
@@ -125,9 +119,9 @@ function Enquiry() {
             label="Number of guests"
             name="guests"
             type="number"
-            min={250}
+            min={50}
             max={400}
-            placeholder="250"
+            placeholder="50"
             required
           />
         </div>

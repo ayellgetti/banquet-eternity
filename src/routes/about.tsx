@@ -23,7 +23,7 @@ function About() {
     <>
       <section className="relative h-[40vh] grid place-items-center">
         <img
-          src="/decor/basic/04.webp"
+          src="/decor/basic/03.webp"
           alt=""
           width={1280}
           height={960}
@@ -56,7 +56,7 @@ function About() {
             </p>
           </div>
           <img
-            src="/decor/basic/04.webp"
+            src="/decor/basic/03.webp"
             alt="Banquet hall seating"
             loading="lazy"
             width={1280}

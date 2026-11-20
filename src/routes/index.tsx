@@ -5,6 +5,7 @@ import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { VenuesSection } from "@/components/VenueLocations";
+import { FaqSection } from "@/components/FaqSection";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 import { eventCategories } from "@/lib/events";
 import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
@@ -148,6 +149,8 @@ function Home() {
       >
         <VenuesSection showIntro title="" subtitle="" />
       </Section>
+
+      <FaqSection />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import heroHall from "@/assets/hero-hall.webp";
+import { absoluteUrl, venueJsonLd } from "@/lib/site";
 import { StickyContactBar } from "@/components/StickyContactBar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
@@ -70,7 +72,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Elegant banquet hall for life's biggest celebrations." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      ...(absoluteUrl(heroHall) ? [{ property: "og:image", content: absoluteUrl(heroHall) }] : []),
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(venueJsonLd()) }],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },

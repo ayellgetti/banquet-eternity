@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Users, Sparkles, MapPin, ArrowRight, Utensils, Music, Camera, Building2 } from "lucide-react";
-import heroHall from "@/assets/hero-hall.jpg";
+import heroHall from "@/assets/hero-hall.webp";
 import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";

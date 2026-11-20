@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Section";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
-import exterior from "@/assets/exterior.jpg";
+import exterior from "@/assets/exterior.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({

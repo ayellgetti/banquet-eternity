@@ -36,7 +36,10 @@ export const MENU_CATEGORY_ORDER: MenuCategory[] = [
 export type PlatePackage = {
   id: string;
   name: string;
+  /** Price per plate after the offer discount (what the guest pays). */
   basePrice: number;
+  /** Original per-plate price before the offer discount. */
+  listPrice?: number;
   minPax: number;
   tagline: string;
   limits: Partial<Record<MenuCategory, number>>;
@@ -44,11 +47,18 @@ export type PlatePackage = {
   highlight?: boolean;
 };
 
+/** Current promotion, per the printed menu. */
+export const PACKAGE_OFFER = {
+  percent: 10,
+  label: "Special Offer · Flat 10% OFF on all packages",
+} as const;
+
 export const PLATE_PACKAGES: PlatePackage[] = [
   {
-    id: "plate-600",
+    id: "plate-bronze",
     name: "Bronze",
-    basePrice: 600,
+    listPrice: 700,
+    basePrice: 630,
     minPax: 100,
     tagline: "Essential wedding plate",
     limits: {
@@ -63,9 +73,10 @@ export const PLATE_PACKAGES: PlatePackage[] = [
     extras: ["Indian Breads: Poori only · Sweets: Gulab Jamun only"],
   },
   {
-    id: "plate-750",
+    id: "plate-silver",
     name: "Silver",
-    basePrice: 750,
+    listPrice: 850,
+    basePrice: 765,
     minPax: 100,
     tagline: "Popular choice with farsan",
     limits: {
@@ -82,9 +93,10 @@ export const PLATE_PACKAGES: PlatePackage[] = [
     highlight: true,
   },
   {
-    id: "plate-950",
+    id: "plate-gold",
     name: "Gold",
-    basePrice: 875,
+    listPrice: 1000,
+    basePrice: 900,
     minPax: 100,
     tagline: "Premium spread",
     limits: {
@@ -112,12 +124,12 @@ export const PLATE_PACKAGES: PlatePackage[] = [
 export const PACKAGE_INCLUDES = [
   "Hall Rent + AC Electricity",
   "Basic Decoration",
-  "Changing Room",
+  "2 Changing Rooms",
   "Mic & Music",
   "Stage Light",
   "Stage Sofa",
   "Chairs with Seat Covers",
-  "Separate Dining Area",
+  "Separate Dining Area (up to 100 guests)",
   "Dedicated Elevator",
   "2 Parking Spaces",
 ] as const;
@@ -170,7 +182,6 @@ export const HALL_RENT = {
 export const TIME_SLOTS = [
   { label: "Morning 08:00 AM – 02:00 PM", hours: 6 },
   { label: "Evening 04:00 PM – 10:00 PM", hours: 6 },
-  { label: "Full Day 08:00 AM – 08:00 PM", hours: 12 },
   { label: "Full Day 10:00 AM – 10:00 PM", hours: 12 },
 ] as const;
 

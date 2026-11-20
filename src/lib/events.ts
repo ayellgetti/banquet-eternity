@@ -1,3 +1,4 @@
+import decorations from "@/lib/decorations.json";
 import weddingStage1 from "@/assets/wedding-stage-1.webp";
 import weddingStage2 from "@/assets/wedding-stage-2.webp";
 import weddingStage3 from "@/assets/wedding-stage-3.webp";
@@ -124,7 +125,14 @@ export const eventCategories: {
   },
 ];
 
-export const galleryImages: { src: string; category: EventCategory | "Venue"; alt: string }[] = [
+export type GalleryCategory = EventCategory | "Venue" | "Basic Decor";
+
+export const galleryImages: {
+  src: string;
+  thumb?: string;
+  category: GalleryCategory;
+  alt: string;
+}[] = [
   { src: hall, category: "Venue", alt: "Grand banquet hall" },
   { src: weddingStage1, category: "Wedding", alt: "Wedding stage with floral mandap" },
   { src: weddingStage2, category: "Wedding", alt: "Elegant wedding stage décor" },
@@ -168,6 +176,25 @@ export const galleryImages: { src: string; category: EventCategory | "Venue"; al
   { src: dining, category: "Venue", alt: "Elegant dining setup" },
   { src: exterior, category: "Venue", alt: "Venue exterior at dusk" },
 ];
+
+// Decoration photos (public/decor, generated into decorations.json) live in the same gallery.
+const DECOR_CATEGORY: Record<string, GalleryCategory> = {
+  Haldi: "Haldi and Sangeet",
+  Basic: "Basic Decor",
+};
+for (const [folder, photos] of Object.entries(
+  decorations as Record<string, { src: string; thumb: string }[]>,
+)) {
+  const category = DECOR_CATEGORY[folder] ?? (folder as GalleryCategory);
+  photos.forEach((p, i) =>
+    galleryImages.push({
+      src: p.src,
+      thumb: p.thumb,
+      category,
+      alt: `${category} decoration ${i + 1}`,
+    }),
+  );
+}
 
 export const testimonials = [
   {

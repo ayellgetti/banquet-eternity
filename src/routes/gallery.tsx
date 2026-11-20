@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Section } from "@/components/Section";
-import { galleryImages, eventCategories, type EventCategory } from "@/lib/events";
+import { galleryImages, eventCategories, type GalleryCategory } from "@/lib/events";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -11,7 +11,7 @@ export const Route = createFileRoute("/gallery")({
       {
         name: "description",
         content:
-          "Browse photos of weddings, birthdays, engagements, baby showers, anniversaries and corporate events at Eternity Banquet.",
+          "Browse photos and decoration setups for weddings, haldi, birthdays, engagements, baby showers, anniversaries and more at Eternity Banquet.",
       },
       { property: "og:title", content: "Eternity Banquet Gallery" },
       { property: "og:description", content: "Moments from our most memorable events." },
@@ -20,13 +20,15 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-type Filter = "All" | EventCategory | "Venue";
-const filters: Filter[] = ["All", ...eventCategories.map((e) => e.name), "Venue"];
+type Filter = "All" | GalleryCategory;
+const filters: Filter[] = ["All", ...eventCategories.map((e) => e.name), "Basic Decor", "Venue"];
+const PAGE = 24;
 
 function Gallery() {
   const [active, setActive] = useState<Filter>("All");
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const [shown, setShown] = useState(PAGE);
   const items =
     active === "All" ? galleryImages : galleryImages.filter((g) => g.category === active);
 
@@ -65,7 +67,7 @@ function Gallery() {
     <Section
       eyebrow="Our Work"
       title="Gallery"
-      subtitle="Filter by event type to see moments from our most memorable celebrations."
+      subtitle="Moments and decoration setups from our celebrations. Tell us what you like and we'll recreate or customise it."
       center
     >
       <div className="flex flex-wrap justify-center gap-2 mb-10">
@@ -74,6 +76,7 @@ function Gallery() {
             key={f}
             onClick={() => {
               setActive(f);
+              setShown(PAGE);
               setLightboxIdx(null);
             }}
             className={`px-5 py-2 rounded-full text-sm font-medium border transition ${
@@ -88,14 +91,14 @@ function Gallery() {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {items.map((g, i) => (
+        {items.slice(0, shown).map((g, i) => (
           <button
             key={i}
             onClick={() => setLightboxIdx(i)}
             className="group relative overflow-hidden rounded-2xl aspect-square shadow-[var(--shadow-soft)]"
           >
             <img
-              src={g.src}
+              src={g.thumb ?? g.src}
               alt={g.alt}
               loading="lazy"
               width={1280}
@@ -112,6 +115,14 @@ function Gallery() {
           </button>
         ))}
       </div>
+
+      {shown < items.length && (
+        <div className="flex justify-center mt-10">
+          <button onClick={() => setShown((n) => n + PAGE)} className="btn-hero">
+            Show more ({items.length - shown} left)
+          </button>
+        </div>
+      )}
 
       {current && (
         <div

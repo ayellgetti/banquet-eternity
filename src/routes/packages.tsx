@@ -8,6 +8,7 @@ import {
   COMMON_PLATE_ITEMS,
   DECOR_OPTIONS,
   HALL_RENT,
+  PACKAGE_OFFER,
   LIVE_COUNTER_RULES,
   MENU_CATEGORY_ORDER,
   PACKAGE_INCLUDES,
@@ -97,6 +98,11 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
         <p className="mt-3 font-display text-2xl font-bold text-accent">
           {pkg.basePrice > 0 ? (
             <>
+              {pkg.listPrice && (
+                <span className="mr-2 text-base font-medium text-muted-foreground line-through">
+                  {formatInr(pkg.listPrice)}
+                </span>
+              )}
               {formatInr(pkg.basePrice)}
               <span className="text-base font-medium text-muted-foreground">/plate</span>
             </>
@@ -104,6 +110,11 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
             "Custom pricing"
           )}
         </p>
+        {pkg.listPrice && (
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+            {PACKAGE_OFFER.percent}% off
+          </p>
+        )}
         <p className="text-xs text-muted-foreground mt-2">Minimum {pkg.minPax} guests</p>
       </div>
 
@@ -187,9 +198,15 @@ function Packages() {
               covers, basic stage decoration, stage lighting, stage sofa and more are included — you
               only pay extra for optional décor, add-ons or dishes beyond your package limits.
             </p>
+            <p className="font-semibold text-foreground">{PACKAGE_OFFER.label}</p>
             <p>
               <strong className="text-foreground">Elite</strong> lets you build a custom menu at
               category rates. Hall rent and decoration are quoted separately for Elite bookings.
+            </p>
+            <p className="text-sm">
+              Mocktails are ₹20 extra per plate; special ice creams and onion uttapam are ₹25 extra
+              per plate. Seasonal items (Gajar Halwa, Aam Ras, Orange Juice) are subject to
+              availability.
             </p>
           </AlertDescription>
         </Alert>

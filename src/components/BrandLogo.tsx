@@ -1,20 +1,22 @@
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.webp";
+import logoPlain from "@/assets/logo-plain.webp";
 
 type BrandLogoProps = {
   className?: string;
   imageClassName?: string;
+  /** Lotus mark only, without the "Eternity Banquet" wordmark. */
+  plain?: boolean;
 };
 
-export function BrandLogo({ className, imageClassName }: BrandLogoProps) {
+export function BrandLogo({ className, imageClassName, plain }: BrandLogoProps) {
   return (
     <img
-      src={logo}
-      alt=""
-      aria-hidden
-      width={120}
-      height={160}
-      className={cn("h-12 w-auto object-contain shrink-0", imageClassName, className)}
+      src={plain ? logoPlain : logo}
+      alt="Eternity Banquet"
+      width={plain ? 397 : 400}
+      height={plain ? 336 : 400}
+      className={cn("h-14 w-auto object-contain shrink-0", imageClassName, className)}
     />
   );
 }

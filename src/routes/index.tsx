@@ -9,7 +9,6 @@ import {
   Camera,
   Building2,
 } from "lucide-react";
-import heroHall from "@/assets/hero-hall.webp";
 import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
 import { TestimonialCard } from "@/components/TestimonialCard";
@@ -45,7 +44,7 @@ function Home() {
       {/* Hero */}
       <section className="relative min-h-[88vh] flex items-center">
         <img
-          src={heroHall}
+          src="/decor/hero.webp"
           alt="Eternity Banquet hall"
           width={1920}
           height={1080}

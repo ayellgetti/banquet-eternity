@@ -15,7 +15,7 @@ export function TestimonialCard({ item }: { item: TestimonialItem }) {
           className="w-full aspect-[9/16] max-h-[28rem] bg-black object-cover"
         />
       )}
-      <figcaption className="flex flex-1 flex-col p-5">
+      <figcaption className={`flex flex-col ${item.quote ? "flex-1 p-5" : "px-5 py-3"}`}>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{item.event}</p>
         {item.quote && (
           <>
@@ -24,6 +24,9 @@ export function TestimonialCard({ item }: { item: TestimonialItem }) {
               “{item.quote}”
             </blockquote>
           </>
+        )}
+        {!item.quote && item.caption && (
+          <p className="mt-1 text-sm text-muted-foreground">{item.caption}</p>
         )}
         {item.name && <p className="mt-4 font-semibold text-primary">{item.name}</p>}
       </figcaption>

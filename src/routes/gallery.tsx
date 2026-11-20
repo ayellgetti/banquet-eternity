@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Section } from "@/components/Section";
 import { galleryImages, eventCategories, type GalleryCategory } from "@/lib/events";
@@ -21,7 +21,10 @@ export const Route = createFileRoute("/gallery")({
 });
 
 type Filter = "All" | GalleryCategory;
-const filters: Filter[] = ["All", ...eventCategories.map((e) => e.name), "Basic Decor", "Venue"];
+// Only offer filters that actually have photos.
+const filters: Filter[] = ["All", ...eventCategories.map((e) => e.name), "Basic Decor"].filter(
+  (f) => f === "All" || galleryImages.some((g) => g.category === f),
+) as Filter[];
 const PAGE = 24;
 
 function Gallery() {
@@ -29,6 +32,7 @@ function Gallery() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
   const [shown, setShown] = useState(PAGE);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const items =
     active === "All" ? galleryImages : galleryImages.filter((g) => g.category === active);
 
@@ -43,6 +47,25 @@ function Gallery() {
   );
 
   // Auto-advance when open and not paused
+  // Infinite scroll: load the next batch when the sentinel nears the viewport.
+  // Re-checked after every batch so a sentinel that is still in view keeps loading.
+  useEffect(() => {
+    if (shown >= items.length) return;
+    const check = () => {
+      const el = sentinelRef.current;
+      if (el && el.getBoundingClientRect().top < window.innerHeight + 800) {
+        setShown((n) => Math.min(n + PAGE, items.length));
+      }
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
+  }, [shown, items.length]);
+
   useEffect(() => {
     if (lightboxIdx === null || paused) return;
     const t = setInterval(next, 3500);
@@ -117,10 +140,8 @@ function Gallery() {
       </div>
 
       {shown < items.length && (
-        <div className="flex justify-center mt-10">
-          <button onClick={() => setShown((n) => n + PAGE)} className="btn-hero">
-            Show more ({items.length - shown} left)
-          </button>
+        <div ref={sentinelRef} aria-hidden className="h-16 mt-6 grid place-items-center">
+          <span className="size-6 rounded-full border-2 border-accent border-t-transparent animate-spin" />
         </div>
       )}
 

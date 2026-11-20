@@ -161,7 +161,7 @@ export function SiteHeader() {
       <div className="h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent" />
 
       <div className="container-x flex items-center justify-between gap-4 py-3 sm:py-3.5 min-h-[4.25rem] sm:min-h-[4.75rem]">
-        <BrandMarkLink imageClassName="h-9 sm:h-11" textClassName="text-lg sm:text-2xl" />
+        <BrandMarkLink plain imageClassName="h-14 sm:h-[4.5rem]" />
 
         <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1" aria-label="Main navigation">
           {mainNav.map((item) => (
@@ -226,7 +226,7 @@ export function SiteHeader() {
               <SheetTitle className="sr-only">Site navigation</SheetTitle>
 
               <div className="border-b border-border/80 bg-secondary/30 px-5 py-5">
-                <BrandMarkLink imageClassName="h-10" textClassName="text-xl" />
+                <BrandMarkLink plain imageClassName="h-16" />
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                   Weddings, celebrations &amp; corporate events in Mumbai.
                 </p>

@@ -1,4 +1,3 @@
-import heroHall from "@/assets/hero-hall.webp";
 import { absoluteUrl, venueJsonLd } from "@/lib/site";
 import { StickyContactBar } from "@/components/StickyContactBar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -86,10 +85,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      ...(absoluteUrl(heroHall) ? [{ property: "og:image", content: absoluteUrl(heroHall) }] : []),
+      ...(absoluteUrl("/decor/hero.webp")
+        ? [{ property: "og:image", content: absoluteUrl("/decor/hero.webp") }]
+        : []),
     ],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(venueJsonLd()) }],
     links: [
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

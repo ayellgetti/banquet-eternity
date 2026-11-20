@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Section } from "@/components/Section";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
-import exterior from "@/assets/exterior.webp";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -24,7 +23,7 @@ function About() {
     <>
       <section className="relative h-[40vh] grid place-items-center">
         <img
-          src={exterior}
+          src="/decor/basic/04.webp"
           alt=""
           width={1280}
           height={960}
@@ -57,8 +56,8 @@ function About() {
             </p>
           </div>
           <img
-            src={exterior}
-            alt="Banquet exterior"
+            src="/decor/basic/04.webp"
+            alt="Banquet hall seating"
             loading="lazy"
             width={1280}
             height={960}

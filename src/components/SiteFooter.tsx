@@ -15,11 +15,7 @@ export function SiteFooter() {
     <footer className="bg-primary text-primary-foreground mt-20">
       <div className="container-x py-14 grid gap-10 md:grid-cols-4">
         <div>
-          <BrandMarkLink
-            className="mb-3"
-            imageClassName="h-12 sm:h-14 brightness-110"
-            textClassName="text-2xl"
-          />
+          <BrandMarkLink className="mb-3" imageClassName="h-20 sm:h-24 brightness-110" />
           <p className="text-sm opacity-80 leading-relaxed italic">
             Creating memories that last forever.
           </p>

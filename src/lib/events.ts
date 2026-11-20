@@ -1,49 +1,7 @@
 import decorations from "@/lib/decorations.json";
-import weddingStage1 from "@/assets/wedding-stage-1.webp";
-import weddingStage2 from "@/assets/wedding-stage-2.webp";
-import weddingStage3 from "@/assets/wedding-stage-3.webp";
-import weddingStage4 from "@/assets/wedding-stage-4.webp";
-import weddingStage5 from "@/assets/wedding-stage-5.webp";
-import weddingStage6 from "@/assets/wedding-stage-6.webp";
-import weddingHall1 from "@/assets/wedding-hall-1.webp";
-import weddingHall2 from "@/assets/wedding-hall-2.webp";
-import weddingInvitation from "@/assets/wedding-invitation.webp";
-import birthday from "@/assets/event-birthday.webp";
-import engagement from "@/assets/event-engagement.webp";
-import babyshowerStage1 from "@/assets/babyshower-stage-1.webp";
-import babyshowerStage2 from "@/assets/babyshower-stage-2.webp";
-import babyshowerBoySign from "@/assets/babyshower-boy-sign.webp";
-import babyshowerGirlSign from "@/assets/babyshower-girl-sign.webp";
-import haldiSangeetStage from "@/assets/haldi-sangeet-stage.webp";
-import haldiSangeetHall from "@/assets/haldi-sangeet-hall.webp";
-import anniversary from "@/assets/event-anniversary.webp";
-import corporate from "@/assets/event-corporate.webp";
-import other from "@/assets/event-other.webp";
-import stage from "@/assets/stage.webp";
-import dining from "@/assets/dining.webp";
-import exterior from "@/assets/exterior.webp";
-import hall from "@/assets/hero-hall.webp";
 
-const weddingImages = [
-  weddingStage1,
-  weddingStage2,
-  weddingStage3,
-  weddingStage4,
-  weddingStage5,
-  weddingStage6,
-  weddingHall1,
-  weddingHall2,
-  weddingInvitation,
-];
-
-const babyShowerImages = [
-  babyshowerStage1,
-  babyshowerStage2,
-  babyshowerBoySign,
-  babyshowerGirlSign,
-];
-
-const haldiSangeetImages = [haldiSangeetStage, haldiSangeetHall];
+/** Venue photo from public/decor (generated from the decorations folder). */
+const decor = (folder: string, n: number) => `/decor/${folder}/${String(n).padStart(2, "0")}.webp`;
 
 export type EventCategory =
   | "Wedding"
@@ -64,118 +22,101 @@ export const eventCategories: {
 }[] = [
   {
     name: "Wedding",
-    image: weddingStage1,
-    images: weddingImages,
+    image: decor("anniversary", 7),
+    images: [
+      decor("anniversary", 7),
+      decor("anniversary", 6),
+      decor("engagement", 9),
+      decor("basic", 2),
+    ],
     description:
       "Make your big day timeless with a grand mandap, floral décor, and unforgettable hospitality.",
   },
   {
     name: "Haldi and Sangeet",
-    image: haldiSangeetStage,
-    images: haldiSangeetImages,
+    image: decor("haldi", 4),
+    images: [decor("haldi", 4), decor("haldi", 1), decor("haldi", 14), decor("haldi", 5)],
     description:
       "Vibrant haldi ceremonies and lively sangeet nights with colorful décor, music, and dance floor setups.",
   },
   {
     name: "Birthday",
-    image: birthday,
-    images: [birthday, stage, hall, dining],
+    image: decor("birthday", 8),
+    images: [
+      decor("birthday", 8),
+      decor("birthday", 38),
+      decor("birthday", 35),
+      decor("birthday", 31),
+    ],
     description:
       "From milestone birthdays to kids' themed parties — colorful, joyful celebrations done right.",
   },
   {
     name: "Engagement",
-    image: engagement,
-    images: [engagement, stage, dining, hall],
+    image: decor("engagement", 2),
+    images: [
+      decor("engagement", 2),
+      decor("engagement", 9),
+      decor("engagement", 12),
+      decor("engagement", 1),
+    ],
     description:
       "Romantic, intimate setups with elegant lighting to mark the start of your forever.",
   },
   {
     name: "Baby Shower",
-    image: babyshowerStage1,
-    images: babyShowerImages,
+    image: decor("baby-shower", 1),
+    images: [
+      decor("baby-shower", 1),
+      decor("baby-shower", 3),
+      decor("baby-shower", 4),
+      decor("baby-shower", 8),
+      decor("baby-shower", 9),
+    ],
     description:
       "Pastel-perfect baby shower arrangements with custom themes and dedicated planning.",
   },
   {
     name: "Naming Ceremony",
-    image: babyshowerStage2,
-    images: [babyshowerStage2, babyshowerBoySign, babyshowerGirlSign, stage],
+    image: decor("naming-ceremony", 2),
+    images: [decor("naming-ceremony", 2), decor("naming-ceremony", 1)],
     description:
       "Traditional naamkaran celebrations with cradle décor, floral setups and warm family gatherings.",
   },
   {
     name: "Anniversary",
-    image: anniversary,
-    images: [anniversary, dining, stage, hall],
+    image: decor("anniversary", 1),
+    images: [
+      decor("anniversary", 1),
+      decor("anniversary", 4),
+      decor("anniversary", 2),
+      decor("anniversary", 8),
+    ],
     description: "Relive your love story with candlelit dining and curated music & menus.",
   },
   {
     name: "Corporate Event",
-    image: corporate,
-    images: [corporate, hall, stage, dining],
+    image: decor("basic", 3),
+    images: [decor("basic", 3), decor("basic", 2)],
     description: "Conferences, AGMs, product launches and gala dinners with full A/V support.",
   },
   {
     name: "Other",
-    image: other,
-    images: [other, hall, stage, exterior],
+    image: decor("basic", 2),
+    images: [decor("basic", 2), decor("basic", 3)],
     description:
       "Festivals, reunions, social gatherings — share your vision and we'll bring it to life.",
   },
 ];
 
-export type GalleryCategory = EventCategory | "Venue" | "Basic Decor";
+export type GalleryCategory = EventCategory | "Basic Decor";
 
 export const galleryImages: {
   src: string;
   thumb?: string;
   category: GalleryCategory;
   alt: string;
-}[] = [
-  { src: hall, category: "Venue", alt: "Grand banquet hall" },
-  { src: weddingStage1, category: "Wedding", alt: "Wedding stage with floral mandap" },
-  { src: weddingStage2, category: "Wedding", alt: "Elegant wedding stage décor" },
-  { src: weddingStage3, category: "Wedding", alt: "Grand wedding mandap setup" },
-  { src: weddingStage4, category: "Wedding", alt: "Wedding stage with uplighting" },
-  { src: weddingStage5, category: "Wedding", alt: "Floral wedding backdrop" },
-  { src: weddingStage6, category: "Wedding", alt: "Wedding ceremony stage" },
-  { src: weddingHall1, category: "Wedding", alt: "Wedding guest seating arrangement" },
-  { src: weddingHall2, category: "Wedding", alt: "Banquet hall ready for wedding guests" },
-  { src: weddingInvitation, category: "Wedding", alt: "Wedding celebration at Eternity Banquet" },
-  {
-    src: haldiSangeetStage,
-    category: "Haldi and Sangeet",
-    alt: "Haldi ceremony stage with marigold décor",
-  },
-  {
-    src: haldiSangeetHall,
-    category: "Haldi and Sangeet",
-    alt: "Banquet hall seating for sangeet night",
-  },
-  { src: birthday, category: "Birthday", alt: "Birthday celebration" },
-  { src: engagement, category: "Engagement", alt: "Engagement ceremony" },
-  {
-    src: babyshowerStage1,
-    category: "Baby Shower",
-    alt: "Baby shower stage with boy and girl décor",
-  },
-  { src: babyshowerStage2, category: "Baby Shower", alt: "Gender reveal baby shower setup" },
-  { src: babyshowerBoySign, category: "Baby Shower", alt: "It's a boy baby shower sign" },
-  { src: babyshowerGirlSign, category: "Baby Shower", alt: "It's a girl baby shower sign" },
-  {
-    src: babyshowerStage2,
-    category: "Naming Ceremony",
-    alt: "Naming ceremony stage with cradle décor",
-  },
-  { src: babyshowerBoySign, category: "Naming Ceremony", alt: "Naming ceremony welcome sign" },
-  { src: stage, category: "Naming Ceremony", alt: "Naming ceremony celebration setup" },
-  { src: anniversary, category: "Anniversary", alt: "Anniversary table setting" },
-  { src: corporate, category: "Corporate Event", alt: "Corporate event" },
-  { src: other, category: "Other", alt: "Cultural celebration" },
-  { src: dining, category: "Venue", alt: "Elegant dining setup" },
-  { src: exterior, category: "Venue", alt: "Venue exterior at dusk" },
-];
+}[] = [];
 
 // Decoration photos (public/decor, generated into decorations.json) live in the same gallery.
 const DECOR_CATEGORY: Record<string, GalleryCategory> = {

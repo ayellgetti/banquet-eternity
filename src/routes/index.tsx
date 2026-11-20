@@ -12,12 +12,11 @@ import {
 import heroHall from "@/assets/hero-hall.webp";
 import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
-import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { VenuesSection } from "@/components/VenueLocations";
 import { FaqSection } from "@/components/FaqSection";
-import { VideoReels } from "@/components/VideoReels";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
-import { TESTIMONIAL_REELS } from "@/lib/testimonialVideos";
+import { TESTIMONIAL_ITEMS } from "@/lib/testimonialVideos";
 import { eventCategories } from "@/lib/events";
 import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
 
@@ -180,14 +179,15 @@ function Home() {
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-primary">Loved by our guests</h2>
           </div>
-          <TestimonialsCarousel />
-          <div className="mt-14">
-            <VideoReels reels={TESTIMONIAL_REELS} />
-            <div className="mt-8 text-center">
-              <Link to="/testimonials" className="btn-hero">
-                See all testimonials
-              </Link>
-            </div>
+          <div className="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
+            {TESTIMONIAL_ITEMS.slice(0, 4).map((t) => (
+              <TestimonialCard key={`${t.event}-${t.name ?? t.video}`} item={t} />
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link to="/testimonials" className="btn-hero">
+              See all testimonials
+            </Link>
           </div>
         </div>
       </section>

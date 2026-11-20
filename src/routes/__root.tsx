@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Premium banquet hall in Mumbai hosting weddings, birthdays, engagements and corporate events for 250–400 guests.",
+          "Premium banquet hall in Mumbai hosting weddings, birthdays, engagements and corporate events for up to 1000 guests.",
       },
       { name: "author", content: "Eternity Banquet" },
       { property: "og:title", content: "Eternity Banquet" },

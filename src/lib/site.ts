@@ -1,11 +1,12 @@
 import { VENUES } from "@/lib/maps";
 
 /**
- * Public site origin, e.g. "https://www.example.com" (no trailing slash).
- * Set VITE_SITE_URL in the Netlify environment. When unset, absolute-URL
- * tags (canonical, og:image) are omitted instead of emitting broken values.
+ * Public site origin (no trailing slash). Override with VITE_SITE_URL, e.g. for a
+ * staging deploy; otherwise the production domain is used.
  */
-export const SITE_URL: string = (import.meta.env.VITE_SITE_URL ?? "").replace(/\/$/, "");
+export const SITE_URL: string = (
+  import.meta.env.VITE_SITE_URL ?? "https://eternitybanquet.com"
+).replace(/\/$/, "");
 
 export const absoluteUrl = (path: string) => (SITE_URL ? `${SITE_URL}${path}` : undefined);
 

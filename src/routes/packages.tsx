@@ -141,7 +141,7 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
         ) : (
           <p className="text-sm text-muted-foreground leading-relaxed">
             Pick any dishes from our full menu — each item is charged at its category rate below.
-            Hall rent, chairs and basic decoration are quoted separately.
+            Hall rent, chairs and decoration are quoted separately.
           </p>
         )}
 
@@ -175,7 +175,7 @@ function Packages() {
       <Section
         eyebrow="Packages & Pricing"
         title="Everything we offer, at a glance"
-        subtitle="Premium per-plate packages with hall rent, chairs and basic decoration included — plus optional décor, stage upgrades and add-on services."
+        subtitle="Premium per-plate packages with hall rent and chairs included. Decoration is not included and is charged separately — plus optional décor, stage upgrades and add-on services."
         center
       >
         <div className="flex justify-center mb-8">
@@ -195,8 +195,9 @@ function Packages() {
             <p>
               <strong className="text-foreground">Bronze, Silver &amp; Gold</strong> are
               all-inclusive per-plate packages (min. 100 guests). Hall rent, AC, chairs with seat
-              covers, basic stage decoration, stage lighting, stage sofa and more are included — you
-              only pay extra for optional décor, add-ons or dishes beyond your package limits.
+              covers, stage lighting, stage sofa and more are included. Decoration is not included
+              and is charged separately, along with any add-ons or dishes beyond your package
+              limits.
             </p>
             <p className="font-semibold text-foreground">{PACKAGE_OFFER.label}</p>
             <p>
@@ -278,9 +279,9 @@ function Packages() {
               Venue &amp; time slots
             </h2>
             <p className="text-muted-foreground mt-3 leading-relaxed">
-              {HALL_RENT.venue} — {HALL_RENT.description}. Basic stage decoration, stage lighting
-              and stage sofa are included with hall rent. Every additional hour beyond your booked
-              slot: {formatInr(HALL_RENT.extraHourRate)}/hour.
+              {HALL_RENT.venue} — {HALL_RENT.description}. Stage lighting and stage sofa are
+              included with hall rent. Decoration is charged separately. Every additional hour
+              beyond your booked slot: {formatInr(HALL_RENT.extraHourRate)}/hour.
             </p>
           </div>
 

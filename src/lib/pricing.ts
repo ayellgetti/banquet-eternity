@@ -123,7 +123,6 @@ export const PLATE_PACKAGES: PlatePackage[] = [
 
 export const PACKAGE_INCLUDES = [
   "Hall Rent + AC Electricity",
-  "Basic Decoration",
   "2 Changing Rooms",
   "Mic & Music",
   "Stage Light",
@@ -203,11 +202,6 @@ export const ADD_ON_SERVICES: { name: string; price: string; note?: string }[] =
 ];
 
 export const STAGE_OPTIONS: { name: string; price: string; description: string }[] = [
-  {
-    name: "Basic Stage Decoration",
-    price: "Included with hall rent",
-    description: "Basic stage setup",
-  },
   { name: "Classic Floral Stage", price: "₹15,000", description: "Roses + drapes" },
   { name: "Royal Mandap", price: "₹35,000", description: "Traditional wedding mandap" },
   { name: "LED Wall Stage", price: "₹45,000", description: "Full LED backdrop with visuals" },

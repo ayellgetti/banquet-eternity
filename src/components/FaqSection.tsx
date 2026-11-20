@@ -27,8 +27,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Bronze, Silver and Gold include: {PACKAGE_INCLUDES.join(", ")}. All packages need a minimum
-        of 100 guests. Elite is a build-your-own menu, with hall rent and decoration quoted
-        separately.
+        of 100 guests. Decoration is not included and is charged separately. Elite is a
+        build-your-own menu, with hall rent also quoted separately.
       </>
     ),
   },
@@ -38,7 +38,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Can you arrange decoration, DJ and photography?",
-    a: "Yes. Basic stage decoration is included with the hall, and you can add floral stages, balloon decoration, DJ & sound, photography, an anchor/MC, a projector, a vidhi mandap and more.",
+    a: "Yes. Decoration is not included with the hall or packages and is charged separately. You can add floral stages, balloon decoration, DJ & sound, photography, an anchor/MC, a projector, a vidhi mandap and more.",
   },
   {
     q: "How do I check availability and get a quote?",

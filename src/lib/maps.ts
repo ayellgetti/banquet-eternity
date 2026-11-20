@@ -48,7 +48,7 @@ export const VENUES: VenueLocation[] = [
       "https://www.google.com/maps?q=Garjato+Marathi+Eternity+Banquets,+Rail+Nagar,+Borivali+West,+Mumbai+400092&z=16&output=embed",
     badge: "6 years of service",
     badgeTone: "established",
-    capacity: "100–450 guests",
+    capacity: "100–1000 guests",
     landmarks: [
       "Near Ashirwad Building, Chandavarkar Road",
       "Close to Don Bosco High School",

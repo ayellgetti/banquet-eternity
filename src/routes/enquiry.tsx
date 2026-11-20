@@ -120,7 +120,7 @@ function Enquiry() {
             name="guests"
             type="number"
             min={50}
-            max={400}
+            max={1000}
             placeholder="50"
             required
           />

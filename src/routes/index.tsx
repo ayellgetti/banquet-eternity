@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Eternity Banquet" },
       {
         property: "og:description",
-        content: "Elegant venue for unforgettable celebrations — 250 to 400 guests.",
+        content: "Elegant venue for unforgettable celebrations — up to 1000 guests.",
       },
     ],
   }),

@@ -167,6 +167,16 @@ function Packages() {
         subtitle="Premium per-plate packages with hall rent, chairs and basic decoration included — plus optional décor, stage upgrades and add-on services."
         center
       >
+        <div className="flex justify-center mb-8">
+          <a
+            href="/Eternity-Menu.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-hero"
+          >
+            Download full menu (PDF)
+          </a>
+        </div>
         <Alert className="max-w-4xl mx-auto text-left border-accent/35 bg-secondary/50 rounded-xl">
           <Info className="size-4 text-accent" aria-hidden />
           <AlertTitle className="font-display text-base">How our packages work</AlertTitle>

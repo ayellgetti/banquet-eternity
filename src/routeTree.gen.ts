@@ -14,6 +14,7 @@ import { Route as PackagesRouteImport } from './routes/packages'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as EnquiryRouteImport } from './routes/enquiry'
+import { Route as DecorationsRouteImport } from './routes/decorations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const EnquiryRoute = EnquiryRouteImport.update({
   path: '/enquiry',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DecorationsRoute = DecorationsRouteImport.update({
+  id: '/decorations',
+  path: '/decorations',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
+  '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/decorations'
     | '/enquiry'
     | '/events'
     | '/gallery'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/decorations'
     | '/enquiry'
     | '/events'
     | '/gallery'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/decorations'
     | '/enquiry'
     | '/events'
     | '/gallery'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
+  DecorationsRoute: typeof DecorationsRoute
   EnquiryRoute: typeof EnquiryRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EnquiryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/decorations': {
+      id: '/decorations'
+      path: '/decorations'
+      fullPath: '/decorations'
+      preLoaderRoute: typeof DecorationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
+  DecorationsRoute: DecorationsRoute,
   EnquiryRoute: EnquiryRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,

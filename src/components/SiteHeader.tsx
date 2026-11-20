@@ -34,6 +34,7 @@ const mainNav: NavItem[] = [
 const exploreNav: NavItem[] = [
   { to: "/events", label: "Events", icon: Sparkles },
   { to: "/gallery", label: "Gallery", icon: Images },
+  { to: "/decorations", label: "Decorations", icon: Sparkles },
 ];
 
 function useActivePath() {

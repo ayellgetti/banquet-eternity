@@ -15,6 +15,7 @@ import { EventsCarousel } from "@/components/EventsCarousel";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { VenuesSection } from "@/components/VenueLocations";
 import { FaqSection } from "@/components/FaqSection";
+import { VideoReels } from "@/components/VideoReels";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 import { eventCategories } from "@/lib/events";
 import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
@@ -179,6 +180,16 @@ function Home() {
             <h2 className="text-4xl md:text-5xl font-bold text-primary">Loved by our guests</h2>
           </div>
           <TestimonialsCarousel />
+          <div className="mt-14">
+            <VideoReels
+              reels={[
+                { src: "/videos/baby-shower.mp4", label: "Baby shower" },
+                { src: "/videos/haldi.mp4", label: "Haldi" },
+                { src: "/videos/birthday.mp4", label: "Birthday" },
+                { src: "/videos/celebration.mp4", label: "Celebration" },
+              ]}
+            />
+          </div>
         </div>
       </section>
 

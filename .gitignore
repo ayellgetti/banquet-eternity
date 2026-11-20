@@ -31,3 +31,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Original unoptimised media (web-ready copies live in public/)
+src/assets/decorations/
+src/assets/testimonial/

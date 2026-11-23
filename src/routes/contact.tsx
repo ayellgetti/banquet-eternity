@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { Phone, Clock, Instagram, MapPin } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
@@ -19,17 +20,20 @@ const CONTACTS = [
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Eternity Banquet" },
+      { title: "Contact & Location — Eternity Banquet, Mumbai" },
       {
         name: "description",
-        content: `Contact Eternity Banquet — ${HERITAGE_YEARS_BORIVALI} years in Borivali (Garjato Marathi) and our new Charkop hall in Kandivali West. Open daily 9am–9pm.`,
+        content:
+          "Call or visit Eternity Banquet in Charkop, Kandivali West and Eternity Hospitality in Borivali West, Mumbai. Open daily 9:00 AM – 9:00 PM.",
       },
       { property: "og:title", content: "Contact Eternity Banquet" },
       {
         property: "og:description",
         content: "Get in touch — we'd love to host your next celebration.",
       },
+      ...shareImageMeta("/decor/hero.webp"),
     ],
+    links: canonicalLinks("/contact"),
   }),
   component: Contact,
 });
@@ -39,6 +43,7 @@ function Contact() {
   return (
     <>
       <Section
+        h1
         eyebrow="Our Locations"
         title="Visit either of our venues"
         subtitle={`Trusted in Borivali for ${HERITAGE_YEARS_BORIVALI} years — and now welcoming guests at our newly opened Charkop hall.`}

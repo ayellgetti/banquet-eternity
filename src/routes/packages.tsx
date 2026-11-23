@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Info } from "lucide-react";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
@@ -24,18 +25,20 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: "Packages & Pricing — Eternity Banquet" },
+      { title: "Banquet Packages & Pricing — Eternity Banquet" },
       {
         name: "description",
         content:
-          "Bronze, Silver, Gold and Elite plate packages, hall rent, décor, stage setups and add-on services at Eternity Banquet, Mumbai.",
+          "Bronze, Silver, Gold and Elite per-plate packages, hall rent and add-on services at Eternity Banquet, Kandivali West and Borivali, Mumbai.",
       },
       { property: "og:title", content: "Packages & Pricing — Eternity Banquet" },
       {
         property: "og:description",
         content: "Transparent per-plate packages with hall rent, catering and décor options.",
       },
+      ...shareImageMeta("/decor/hero.webp"),
     ],
+    links: canonicalLinks("/packages"),
   }),
   component: Packages,
 });
@@ -173,6 +176,7 @@ function Packages() {
   return (
     <>
       <Section
+        h1
         eyebrow="Packages & Pricing"
         title="Everything we offer, at a glance"
         subtitle="Premium per-plate packages with hall rent and chairs included. Decoration is not included and is charged separately — plus optional décor, stage upgrades and add-on services."

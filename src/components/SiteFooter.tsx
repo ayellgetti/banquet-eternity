@@ -2,9 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { MapPin, Phone, Instagram, MessageCircle } from "lucide-react";
 import { MAPS_URL, VENUES } from "@/lib/maps";
 import { BrandMarkLink } from "@/components/BrandMark";
+import { INSTAGRAM_URL } from "@/lib/site";
 
 export const SOCIAL_LINKS = {
-  instagram: "https://www.instagram.com/eternitybanquet",
+  instagram: INSTAGRAM_URL,
   whatsapp: "https://wa.me/message/S7HJ6LWWEQ4AD1",
   maps: MAPS_URL,
 };

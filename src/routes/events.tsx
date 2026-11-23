@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
 import { CategoryCarousel } from "@/components/CategoryCarousel";
@@ -8,15 +9,17 @@ import { ArrowRight, Check } from "lucide-react";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Events We Host — Eternity Banquet" },
+      { title: "Wedding & Event Venue in Mumbai — Eternity Banquet" },
       {
         name: "description",
         content:
-          "Weddings, birthdays, engagements, baby showers, anniversaries, corporate events and more — hosted with elegance at Eternity Banquet.",
+          "Weddings, haldi, birthdays, engagements, baby showers, anniversaries and corporate events at Eternity Banquet in Kandivali West and Borivali, Mumbai.",
       },
       { property: "og:title", content: "Events at Eternity Banquet" },
       { property: "og:description", content: "Every occasion, beautifully done." },
+      ...shareImageMeta("/decor/birthday/08.webp"),
     ],
+    links: canonicalLinks("/events"),
   }),
   component: Events,
 });
@@ -33,7 +36,7 @@ const inclusions = [
 function Events() {
   return (
     <>
-      <Section eyebrow="Our Specialties" title="Events we host" center>
+      <Section h1 eyebrow="Our Specialties" title="Events we host" center>
         <EventsCarousel />
       </Section>
 

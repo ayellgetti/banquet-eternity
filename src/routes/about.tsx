@@ -1,19 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Eternity Banquet" },
+      { title: "About Eternity Banquet — Kandivali West & Borivali" },
       {
         name: "description",
         content:
-          "Learn about Eternity Banquet — hosting weddings and events in Mumbai with luxury décor, premium catering and world-class amenities.",
+          "Learn about Eternity Banquet — wedding and event halls in Kandivali West (Charkop) and Borivali West, Mumbai, with in-house catering and a dedicated planning team.",
       },
       { property: "og:title", content: "About Eternity Banquet" },
       { property: "og:description", content: "A legacy of creating unforgettable celebrations." },
+      ...shareImageMeta("/decor/hero.webp"),
     ],
+    links: canonicalLinks("/about"),
   }),
   component: About,
 });

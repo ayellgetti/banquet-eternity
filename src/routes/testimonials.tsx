@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { TESTIMONIAL_ITEMS } from "@/lib/testimonialVideos";
@@ -6,15 +7,17 @@ import { TESTIMONIAL_ITEMS } from "@/lib/testimonialVideos";
 export const Route = createFileRoute("/testimonials")({
   head: () => ({
     meta: [
-      { title: "Testimonials — Eternity Banquet" },
+      { title: "Guest Reviews & Testimonials — Eternity Banquet" },
       {
         name: "description",
         content:
-          "Hear from families who celebrated weddings, haldi, birthdays and baby showers at Eternity Banquet, in their own words and on video.",
+          "Watch and read what families say about their birthday, haldi, engagement, baby shower and corporate events at Eternity Banquet, Mumbai.",
       },
       { property: "og:title", content: "Testimonials — Eternity Banquet" },
       { property: "og:description", content: "Kind words and video moments from our guests." },
+      ...shareImageMeta("/decor/engagement/02.webp"),
     ],
+    links: canonicalLinks("/testimonials"),
   }),
   component: Testimonials,
 });
@@ -22,6 +25,7 @@ export const Route = createFileRoute("/testimonials")({
 function Testimonials() {
   return (
     <Section
+      h1
       eyebrow="Kind Words"
       title="Loved by our guests"
       subtitle="Videos and words from the families we've hosted."

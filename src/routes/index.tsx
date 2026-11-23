@@ -13,7 +13,8 @@ import { Section } from "@/components/Section";
 import { EventsCarousel } from "@/components/EventsCarousel";
 import { TestimonialCard } from "@/components/TestimonialCard";
 import { VenuesSection } from "@/components/VenueLocations";
-import { FaqSection } from "@/components/FaqSection";
+import { FaqSection, FAQ_PLAIN } from "@/components/FaqSection";
+import { canonicalLinks, faqJsonLd } from "@/lib/site";
 import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 import { TESTIMONIAL_ITEMS } from "@/lib/testimonialVideos";
 import { eventCategories } from "@/lib/events";
@@ -22,11 +23,11 @@ import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eternity Banquet — Premium Wedding & Event Venues in Mumbai" },
+      { title: "Eternity Banquet — Banquet Hall in Kandivali West & Borivali" },
       {
         name: "description",
         content:
-          "Two banquet halls in Mumbai — Eternity Hospitality (Garjato Marathi) in Borivali West and the newly opened Eternity Banquet in Charkop, Kandivali West.",
+          "Banquet halls in Kandivali West (Charkop) and Borivali West, Mumbai for weddings, birthdays, engagements and corporate events. Up to 1000 guests.",
       },
       { property: "og:title", content: "Eternity Banquet" },
       {
@@ -34,6 +35,8 @@ export const Route = createFileRoute("/")({
         content: "Elegant venue for unforgettable celebrations — up to 1000 guests.",
       },
     ],
+    links: canonicalLinks("/"),
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqJsonLd(FAQ_PLAIN)) }],
   }),
   component: Home,
 });

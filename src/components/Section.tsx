@@ -7,6 +7,7 @@ export function Section({
   children,
   className = "",
   center = false,
+  h1 = false,
 }: {
   eyebrow?: string;
   title?: string;
@@ -14,7 +15,10 @@ export function Section({
   children: ReactNode;
   className?: string;
   center?: boolean;
+  /** Render the title as the page's single <h1> (use on the first section only). */
+  h1?: boolean;
 }) {
+  const Heading = h1 ? "h1" : "h2";
   return (
     <section className={`py-20 ${className}`}>
       <div className="container-x">
@@ -25,7 +29,9 @@ export function Section({
                 {eyebrow}
               </p>
             )}
-            {title && <h2 className="text-4xl md:text-5xl font-bold text-primary">{title}</h2>}
+            {title && (
+              <Heading className="text-4xl md:text-5xl font-bold text-primary">{title}</Heading>
+            )}
             {subtitle && <p className="mt-4 text-muted-foreground text-lg">{subtitle}</p>}
           </div>
         )}

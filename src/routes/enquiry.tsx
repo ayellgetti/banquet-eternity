@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Info } from "lucide-react";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { eventCategories } from "@/lib/events";
@@ -15,15 +16,17 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/enquiry")({
   head: () => ({
     meta: [
-      { title: "Enquiry — Eternity Banquet" },
+      { title: "Book Your Event — Eternity Banquet, Mumbai" },
       {
         name: "description",
         content:
-          "Send us your event enquiry. We'll get back to you within 24 hours with availability, packages and a custom quote.",
+          "Send an event enquiry for Eternity Banquet in Kandivali West or Borivali, Mumbai. Share your date, guests and budget and we'll respond within 24 hours.",
       },
       { property: "og:title", content: "Send an Enquiry — Eternity Banquet" },
       { property: "og:description", content: "Book your date with Mumbai's finest banquet." },
+      ...shareImageMeta("/decor/hero.webp"),
     ],
+    links: canonicalLinks("/enquiry"),
   }),
   component: Enquiry,
 });
@@ -52,6 +55,7 @@ function Enquiry() {
   const [submitting, setSubmitting] = useState(false);
   return (
     <Section
+      h1
       eyebrow="Get in Touch"
       title="Send an enquiry"
       subtitle="Tell us about your event and we'll respond within 24 hours."

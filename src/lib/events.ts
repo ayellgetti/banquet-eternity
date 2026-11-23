@@ -132,7 +132,7 @@ for (const [folder, photos] of Object.entries(
       src: p.src,
       thumb: p.thumb,
       category,
-      alt: `${category} decoration ${i + 1}`,
+      alt: `${category} decoration setup at Eternity Banquet, Mumbai (photo ${i + 1})`,
     }),
   );
 }

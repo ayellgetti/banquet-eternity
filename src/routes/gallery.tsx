@@ -1,21 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { canonicalLinks, shareImageMeta } from "@/lib/site";
 import { Section } from "@/components/Section";
 import { galleryImages, eventCategories, type GalleryCategory } from "@/lib/events";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery — Eternity Banquet" },
+      { title: "Event & Decoration Gallery — Eternity Banquet" },
       {
         name: "description",
         content:
-          "Browse photos and decoration setups for weddings, haldi, birthdays, engagements, baby showers, anniversaries and more at Eternity Banquet.",
+          "Photos of haldi, birthday, engagement, baby shower, naming ceremony and anniversary decoration setups at Eternity Banquet, Kandivali West and Borivali, Mumbai.",
       },
       { property: "og:title", content: "Eternity Banquet Gallery" },
       { property: "og:description", content: "Moments from our most memorable events." },
+      ...shareImageMeta("/decor/haldi/04.webp"),
     ],
+    links: canonicalLinks("/gallery"),
   }),
   component: Gallery,
 });
@@ -88,6 +91,7 @@ function Gallery() {
 
   return (
     <Section
+      h1
       eyebrow="Our Work"
       title="Gallery"
       subtitle="Moments and decoration setups from our celebrations. Tell us what you like and we'll recreate or customise it."

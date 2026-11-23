@@ -124,7 +124,6 @@ export const PLATE_PACKAGES: PlatePackage[] = [
 export const PACKAGE_INCLUDES = [
   "Hall Rent + AC Electricity",
   "2 Changing Rooms",
-  "Mic & Music",
   "Stage Light",
   "Stage Sofa",
   "Chairs with Seat Covers",

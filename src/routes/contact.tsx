@@ -62,7 +62,7 @@ function Contact() {
                     <Clock className="size-6" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                    <p className="text-xs uppercase tracking-[0.2em] text-gold-text font-semibold">
                       Hours
                     </p>
                     <p className="font-semibold text-primary mt-0.5">9:00 AM – 9:00 PM</p>
@@ -74,7 +74,7 @@ function Contact() {
                     <Phone className="size-6" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
+                    <p className="text-xs uppercase tracking-[0.2em] text-gold-text font-semibold">
                       Quick Call
                     </p>
                     <p className="font-semibold text-primary mt-0.5">Mon – Sun</p>
@@ -101,7 +101,7 @@ function Contact() {
                           <p className="font-semibold text-primary truncate">{p.name}</p>
                           <a
                             href={`tel:+91${p.phone}`}
-                            className="text-sm text-muted-foreground hover:text-accent transition truncate block"
+                            className="text-sm text-muted-foreground hover:text-gold-text transition truncate block"
                           >
                             {p.display}
                           </a>
@@ -134,7 +134,7 @@ function Contact() {
             </div>
 
             <div className="bg-card p-6 rounded-2xl border border-border shadow-[var(--shadow-soft)]">
-              <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold text-center mb-5">
+              <p className="text-xs uppercase tracking-[0.25em] text-gold-text font-semibold text-center mb-5">
                 Scan to Connect
               </p>
               <div className="grid grid-cols-3 gap-4">
@@ -168,7 +168,7 @@ function Contact() {
                         className="size-full object-contain"
                       />
                     </div>
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-accent transition">
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-primary group-hover:text-gold-text transition">
                       <q.icon className="size-4" /> {q.label}
                     </div>
                   </a>
@@ -213,7 +213,7 @@ function Contact() {
               </div>
               <div className="mt-4 grid gap-2">
                 <label className="text-sm font-medium">
-                  Message<span className="text-accent"> *</span>
+                  Message<span className="text-gold-text"> *</span>
                 </label>
                 <textarea
                   required
@@ -257,7 +257,7 @@ function Field({
     <div className="grid gap-2">
       <label className="text-sm font-medium">
         {label}
-        {required && <span className="text-accent"> *</span>}
+        {required && <span className="text-gold-text"> *</span>}
       </label>
       <input
         name={name}

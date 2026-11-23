@@ -31,7 +31,7 @@ function About() {
         />
         <div className="absolute inset-0 bg-black/55" />
         <div className="relative text-center text-white container-x">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-3">
+          <p className="text-xs uppercase tracking-[0.3em] text-gold-text font-semibold mb-3">
             About Us
           </p>
           <h1 className="font-display text-5xl md:text-6xl font-bold">A legacy of elegance</h1>

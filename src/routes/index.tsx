@@ -173,14 +173,14 @@ function Home() {
       <section className="bg-secondary py-20">
         <div className="container-x">
           <div className="text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-text font-semibold mb-3">
               Kind Words
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-primary">Loved by our guests</h2>
           </div>
           <div className="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
             {TESTIMONIAL_ITEMS.slice(0, 4).map((t) => (
-              <TestimonialCard key={`${t.event}-${t.name ?? t.video}`} item={t} />
+              <TestimonialCard key={`${t.event}-${t.video}`} item={t} />
             ))}
           </div>
           <div className="mt-10 text-center">

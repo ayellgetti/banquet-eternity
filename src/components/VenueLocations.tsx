@@ -55,7 +55,7 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
           <div>
             <span
               className={cn(
-                "inline-flex rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.15em]",
+                "inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase tracking-[0.15em]",
                 venue.badgeTone === "new"
                   ? "bg-accent/15 text-accent"
                   : "bg-primary/8 text-primary",
@@ -64,7 +64,7 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
               {venue.badge}
             </span>
             <h3 className="font-display text-2xl font-bold text-primary mt-2">{venue.name}</h3>
-            <p className="text-sm font-medium text-accent mt-0.5">{venue.tagline}</p>
+            <p className="text-sm font-medium text-gold-text mt-0.5">{venue.tagline}</p>
             <p className="text-sm text-muted-foreground">{venue.area}</p>
           </div>
           {venue.capacity && (
@@ -93,7 +93,7 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
           rel="noopener noreferrer"
           className={cn(
             compact
-              ? "inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
+              ? "inline-flex items-center gap-2 text-sm font-semibold text-gold-text hover:underline"
               : "btn-hero inline-flex text-sm py-2.5 px-5 hover:[transform:translateY(-2px)] hover:[box-shadow:var(--shadow-elegant)]",
           )}
         >

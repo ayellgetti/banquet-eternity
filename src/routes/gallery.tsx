@@ -105,7 +105,7 @@ function Gallery() {
             className={`px-5 py-2 rounded-full text-sm font-medium border transition ${
               active === f
                 ? "bg-primary text-primary-foreground border-primary"
-                : "bg-background border-border hover:border-accent hover:text-accent"
+                : "bg-background border-border hover:border-accent hover:text-gold-text"
             }`}
           >
             {f}

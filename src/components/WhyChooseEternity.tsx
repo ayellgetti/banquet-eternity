@@ -51,7 +51,7 @@ export function WhyChooseEternity({ className, embedded = false }: WhyChooseEter
             {item.title}
           </h3>
           {item.description && (
-            <p className="text-[0.7rem] md:text-xs text-muted-foreground mt-1.5 leading-relaxed">
+            <p className="text-xs md:text-xs text-muted-foreground mt-1.5 leading-relaxed">
               {item.description}
             </p>
           )}

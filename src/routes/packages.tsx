@@ -67,7 +67,7 @@ function PriceTable({
                 <p className="text-sm text-muted-foreground mt-0.5">{row.description}</p>
               )}
             </div>
-            <p className="shrink-0 text-sm font-semibold text-accent tabular-nums sm:text-right">
+            <p className="shrink-0 text-sm font-semibold text-gold-text tabular-nums sm:text-right">
               {row.price}
             </p>
           </li>
@@ -89,13 +89,13 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
     >
       <div className="border-b border-border bg-secondary/30 px-5 py-5 text-center">
         {pkg.highlight && (
-          <p className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-accent mb-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-text mb-2">
             Most Popular
           </p>
         )}
         <h3 className="font-display text-3xl font-bold text-primary">{pkg.name}</h3>
         <p className="text-sm text-muted-foreground mt-1">{pkg.tagline}</p>
-        <p className="mt-3 font-display text-2xl font-bold text-accent">
+        <p className="mt-3 font-display text-2xl font-bold text-gold-text">
           {pkg.basePrice > 0 ? (
             <>
               {pkg.listPrice && (
@@ -111,7 +111,7 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
           )}
         </p>
         {pkg.listPrice && (
-          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
+          <p className="mt-1 text-xs font-semibold uppercase tracking-[0.15em] text-gold-text">
             {PACKAGE_OFFER.percent}% off
           </p>
         )}
@@ -121,7 +121,7 @@ function PackageCard({ pkg }: { pkg: (typeof PLATE_PACKAGES)[number] }) {
       <div className="flex-1 p-5 space-y-4">
         {categories.length > 0 ? (
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-accent mb-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gold-text mb-2">
               Menu includes
             </p>
             <ul className="space-y-1.5">
@@ -272,7 +272,7 @@ function Packages() {
       <section className="bg-secondary py-16">
         <div className="container-x space-y-8">
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-3">
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-text font-semibold mb-3">
               Hall Rent
             </p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
@@ -288,7 +288,7 @@ function Packages() {
           <div className="grid lg:grid-cols-2 gap-8">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] text-center">
               <p className="text-sm text-muted-foreground">Hall rent rate</p>
-              <p className="font-display text-4xl font-bold text-accent mt-2">
+              <p className="font-display text-4xl font-bold text-gold-text mt-2">
                 {formatInr(HALL_RENT.ratePerHour)}
                 <span className="text-lg font-medium text-muted-foreground">/hour</span>
               </p>

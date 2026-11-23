@@ -45,7 +45,7 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Send us an{" "}
-        <Link to="/enquiry" className="text-accent underline underline-offset-4">
+        <Link to="/enquiry" className="text-gold-text underline underline-offset-4">
           enquiry
         </Link>{" "}
         with your date, event type and guest count, or call or WhatsApp us. We respond within 24

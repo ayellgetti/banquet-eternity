@@ -46,7 +46,7 @@ function Events() {
             >
               <CategoryCarousel images={e.images} name={e.name} />
               <div className="[direction:ltr]">
-                <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold mb-2">
+                <p className="text-xs uppercase tracking-[0.25em] text-gold-text font-semibold mb-2">
                   Specialty 0{idx + 1}
                 </p>
                 <h3 className="font-display text-3xl md:text-4xl font-bold text-primary mb-3">
@@ -55,7 +55,7 @@ function Events() {
                 <p className="text-muted-foreground text-lg">{e.description}</p>
                 <Link
                   to="/enquiry"
-                  className="mt-5 inline-flex items-center gap-2 text-accent font-semibold hover:underline"
+                  className="mt-5 inline-flex items-center gap-2 text-gold-text font-semibold hover:underline"
                 >
                   Enquire for {e.name} <ArrowRight className="size-4" />
                 </Link>

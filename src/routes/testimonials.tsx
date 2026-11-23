@@ -29,7 +29,7 @@ function Testimonials() {
     >
       <div className="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
         {TESTIMONIAL_ITEMS.map((t) => (
-          <TestimonialCard key={`${t.event}-${t.name ?? t.video}`} item={t} />
+          <TestimonialCard key={`${t.event}-${t.video}`} item={t} />
         ))}
       </div>
     </Section>

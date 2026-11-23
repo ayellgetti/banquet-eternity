@@ -17,13 +17,14 @@ export function TestimonialCard({ item }: { item: TestimonialItem }) {
         />
       )}
       <figcaption className="flex flex-1 flex-col p-5">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">{item.event}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold-text">
+          {item.event}
+        </p>
         {text && (
           <p className="mt-2 font-display text-base italic leading-relaxed text-foreground/90">
             {text}
           </p>
         )}
-        {item.name && <p className="mt-3 text-sm font-semibold text-primary">{item.name}</p>}
       </figcaption>
     </figure>
   );

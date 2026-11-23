@@ -29,8 +29,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-gold: var(--gold);
+  --color-gold-text: var(--gold-text);
   --color-burgundy: var(--burgundy);
   --color-cream: var(--cream);
+  /* Slightly larger smallest size for readability (was 12px). */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.25rem;
   --font-display: "Playfair Display", serif;
   --font-body: "Inter", sans-serif;
   --shadow-elegant: 0 20px 60px -20px oklch(0.35 0.12 25 / 0.25);
@@ -65,6 +69,8 @@
   --input: oklch(0.9 0.015 85);
   --ring: oklch(0.74 0.13 80);
   --gold: oklch(0.74 0.13 80);
+  /* Darker gold for text on light backgrounds (contrast 4.8-5.8:1; bright gold was ~2:1). */
+  --gold-text: oklch(0.5 0.1 75);
   --burgundy: oklch(0.18 0.005 60);
   --cream: oklch(0.96 0.012 85);
   --sidebar: oklch(0.96 0.012 85);
@@ -83,6 +89,7 @@
 }
 
 .dark {
+  --gold-text: oklch(0.8 0.12 80);
   --background: oklch(0.15 0.03 25);
   --foreground: oklch(0.96 0.02 80);
   --card: oklch(0.2 0.04 25);
@@ -103,13 +110,21 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
+  * {
+    border-color: var(--color-border);
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-body);
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.01em; }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
 }
 
 @utility container-x {
@@ -137,7 +152,9 @@
   font-weight: 600;
   border-radius: 9999px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 @utility btn-hero-hover {
   transform: translateY(-2px);

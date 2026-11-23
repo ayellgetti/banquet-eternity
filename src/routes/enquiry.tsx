@@ -189,7 +189,7 @@ function Field({
     <div className={`grid gap-2 ${className}`}>
       <label className="text-sm font-medium">
         {label}
-        {required && <span className="text-accent"> *</span>}
+        {required && <span className="text-gold-text"> *</span>}
       </label>
       <input
         name={name}
@@ -245,7 +245,7 @@ function MenuPackageField() {
   return (
     <div className="grid gap-2">
       <label className="text-sm font-medium">
-        Menu Package<span className="text-accent"> *</span>
+        Menu Package<span className="text-gold-text"> *</span>
       </label>
       <select
         required
@@ -283,7 +283,7 @@ function SelectField({
     <div className="grid gap-2">
       <label className="text-sm font-medium">
         {label}
-        {required && <span className="text-accent"> *</span>}
+        {required && <span className="text-gold-text"> *</span>}
       </label>
       <select
         required={required}

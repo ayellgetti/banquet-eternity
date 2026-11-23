@@ -22,6 +22,8 @@ type NavItem = {
   label: string;
   icon: LucideIcon;
   exact?: boolean;
+  /** Only show in the desktop bar on very wide screens (xl); always in the mobile menu. */
+  wideOnly?: boolean;
 };
 
 const mainNav: NavItem[] = [
@@ -45,6 +47,7 @@ const desktopNav: NavItem[] = [
   { to: "/events", label: "Events", icon: Sparkles },
   { to: "/packages", label: "Packages", icon: Receipt },
   { to: "/gallery", label: "Gallery", icon: Images },
+  { to: "/testimonials", label: "Testimonials", icon: Quote, wideOnly: true },
   { to: "/contact", label: "Contact", icon: Phone },
 ];
 
@@ -58,21 +61,24 @@ function DesktopNavLink({
   item,
   isActive,
   featured,
+  className,
 }: {
   item: NavItem;
   isActive: boolean;
   featured?: boolean;
+  className?: string;
 }) {
   return (
     <Link
       to={item.to}
       activeOptions={{ exact: item.exact }}
       className={cn(
-        "group relative whitespace-nowrap px-2.5 py-2.5 xl:px-4 rounded-full font-display text-[0.95rem] xl:text-base font-semibold tracking-wide transition-all duration-200",
+        "group relative whitespace-nowrap px-2.5 py-2.5 xl:px-4 rounded-full font-display text-base font-semibold tracking-wide transition-all duration-200",
         isActive
           ? "text-primary bg-accent/15 shadow-[inset_0_0_0_1px_oklch(0.74_0.13_80/0.35)]"
           : "text-foreground/80 hover:text-primary hover:bg-accent/8",
-        featured && !isActive && "text-accent hover:text-primary",
+        featured && !isActive && "text-gold-text hover:text-primary",
+        className,
       )}
     >
       <span className={cn("relative z-10", isActive && "text-gradient-gold")}>{item.label}</span>
@@ -113,7 +119,7 @@ function MobileNavLink({
           isActive
             ? "bg-accent/12 text-primary shadow-sm ring-1 ring-accent/40"
             : featured
-              ? "text-accent"
+              ? "text-gold-text"
               : "text-foreground/85",
         )}
       >
@@ -180,6 +186,7 @@ export function SiteHeader() {
               item={item}
               isActive={isActive(item.to, item.exact)}
               featured={item.to === "/packages"}
+              className={item.wideOnly ? "hidden xl:block" : undefined}
             />
           ))}
 
@@ -240,7 +247,7 @@ export function SiteHeader() {
                 className="flex-1 overflow-y-auto px-3 py-4 space-y-1"
                 aria-label="Mobile navigation"
               >
-                <p className="px-4 pb-2 font-display text-xs font-semibold uppercase tracking-[0.22em] text-accent/90">
+                <p className="px-4 pb-2 font-display text-xs font-semibold uppercase tracking-[0.22em] text-gold-text">
                   Menu
                 </p>
                 {mainNav.map((item) => (
@@ -253,7 +260,7 @@ export function SiteHeader() {
                   />
                 ))}
 
-                <p className="px-4 pt-4 pb-2 font-display text-xs font-semibold uppercase tracking-[0.22em] text-accent/90">
+                <p className="px-4 pt-4 pb-2 font-display text-xs font-semibold uppercase tracking-[0.22em] text-gold-text">
                   Explore
                 </p>
                 {exploreNav.map((item) => (

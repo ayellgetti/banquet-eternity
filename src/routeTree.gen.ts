@@ -19,6 +19,9 @@ import { Route as DecorationsRouteImport } from './routes/decorations'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CustomOrderRouteImport } from './routes/custom/order'
+import { Route as CustomEnquiryRouteImport } from './routes/custom/enquiry'
+import { Route as CustomChecklistRouteImport } from './routes/custom/checklist'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
@@ -70,6 +73,21 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomOrderRoute = CustomOrderRouteImport.update({
+  id: '/custom/order',
+  path: '/custom/order',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomEnquiryRoute = CustomEnquiryRouteImport.update({
+  id: '/custom/enquiry',
+  path: '/custom/enquiry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CustomChecklistRoute = CustomChecklistRouteImport.update({
+  id: '/custom/checklist',
+  path: '/custom/checklist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +100,9 @@ export interface FileRoutesByFullPath {
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/custom/checklist': typeof CustomChecklistRoute
+  '/custom/enquiry': typeof CustomEnquiryRoute
+  '/custom/order': typeof CustomOrderRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +115,9 @@ export interface FileRoutesByTo {
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/custom/checklist': typeof CustomChecklistRoute
+  '/custom/enquiry': typeof CustomEnquiryRoute
+  '/custom/order': typeof CustomOrderRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +131,9 @@ export interface FileRoutesById {
   '/packages': typeof PackagesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/custom/checklist': typeof CustomChecklistRoute
+  '/custom/enquiry': typeof CustomEnquiryRoute
+  '/custom/order': typeof CustomOrderRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +148,9 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/custom/checklist'
+    | '/custom/enquiry'
+    | '/custom/order'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +163,9 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/custom/checklist'
+    | '/custom/enquiry'
+    | '/custom/order'
   id:
     | '__root__'
     | '/'
@@ -145,6 +178,9 @@ export interface FileRouteTypes {
     | '/packages'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/custom/checklist'
+    | '/custom/enquiry'
+    | '/custom/order'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +194,9 @@ export interface RootRouteChildren {
   PackagesRoute: typeof PackagesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TestimonialsRoute: typeof TestimonialsRoute
+  CustomChecklistRoute: typeof CustomChecklistRoute
+  CustomEnquiryRoute: typeof CustomEnquiryRoute
+  CustomOrderRoute: typeof CustomOrderRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +271,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/custom/order': {
+      id: '/custom/order'
+      path: '/custom/order'
+      fullPath: '/custom/order'
+      preLoaderRoute: typeof CustomOrderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom/enquiry': {
+      id: '/custom/enquiry'
+      path: '/custom/enquiry'
+      fullPath: '/custom/enquiry'
+      preLoaderRoute: typeof CustomEnquiryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/custom/checklist': {
+      id: '/custom/checklist'
+      path: '/custom/checklist'
+      fullPath: '/custom/checklist'
+      preLoaderRoute: typeof CustomChecklistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +306,9 @@ const rootRouteChildren: RootRouteChildren = {
   PackagesRoute: PackagesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TestimonialsRoute: TestimonialsRoute,
+  CustomChecklistRoute: CustomChecklistRoute,
+  CustomEnquiryRoute: CustomEnquiryRoute,
+  CustomOrderRoute: CustomOrderRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

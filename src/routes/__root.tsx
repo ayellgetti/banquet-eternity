@@ -6,6 +6,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -121,8 +122,20 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+/** Staff tools and the CRM intake form are standalone pages without the marketing chrome. */
+const STANDALONE_PATHS = ["/custom/checklist", "/custom/order", "/custom/enquiry"];
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  if (STANDALONE_PATHS.includes(pathname.replace(/\/$/, ""))) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <Outlet />
+        <Toaster />
+      </QueryClientProvider>
+    );
+  }
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col pb-14 md:pb-0">

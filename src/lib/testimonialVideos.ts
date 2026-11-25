@@ -26,7 +26,7 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
   },
   {
     event: "Engagement Function",
-    video: "/videos/engagement-reel-oct.mp4",
+    video: "/videos/EBC-engagement-reel-oct.mp4",
     quote:
       "Perfect place for hosting an engagement ceremony. Lovely ambience, beautiful arrangements and professional management. Everything was just as expected.",
   },
@@ -53,6 +53,11 @@ export const TESTIMONIAL_ITEMS: TestimonialItem[] = [
     video: "/videos/birthday-reel-aug-2.mp4",
     quote:
       "Very beautiful and well-maintained banquet. Perfect for intimate birthday parties and family gatherings. Excellent service throughout!",
+  },
+  {
+    event: "Engagement",
+    video: "/videos/Garjato-Engagement.mp4",
+    caption: "An engagement celebration at Eternity Hospitality (Garjato Marathi), Borivali",
   },
   {
     event: "Corporate Event",

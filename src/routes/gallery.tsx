@@ -8,7 +8,7 @@ import { galleryImages, eventCategories, type GalleryCategory } from "@/lib/even
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Event & Decoration Gallery — Eternity Banquet" },
+      { title: "Banquet Hall & Decoration Photos — Eternity Banquet, Charkop" },
       {
         name: "description",
         content:
@@ -93,7 +93,7 @@ function Gallery() {
     <Section
       h1
       eyebrow="Our Work"
-      title="Gallery"
+      title="Banquet hall & decoration gallery"
       subtitle="Moments and decoration setups from our celebrations. Tell us what you like and we'll recreate or customise it."
       center
     >

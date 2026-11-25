@@ -6,7 +6,7 @@ import { WhyChooseEternity } from "@/components/WhyChooseEternity";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Eternity Banquet — Kandivali West & Borivali" },
+      { title: "About Eternity Banquet — Banquet Hall in Charkop & Borivali" },
       {
         name: "description",
         content:

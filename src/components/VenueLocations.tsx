@@ -1,5 +1,7 @@
 import { MapPin, Sparkles } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { VENUE_PATH } from "@/lib/site";
 import { HERITAGE_YEARS_BORIVALI, type VenueLocation, VENUES } from "@/lib/maps";
 
 export function VenuesIntro({ className }: { className?: string }) {
@@ -100,6 +102,12 @@ export function VenueCard({ venue, showMap = true, compact = false }: VenueCardP
           <MapPin className="size-4" />
           Open in Google Maps
         </a>
+        <Link
+          to={VENUE_PATH[venue.id]}
+          className="block text-sm font-semibold text-gold-text hover:underline"
+        >
+          Banquet hall in {venue.area.split(",")[0]} — details &amp; packages →
+        </Link>
       </div>
 
       {showMap && (

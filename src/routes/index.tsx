@@ -23,11 +23,11 @@ import { HERITAGE_YEARS_BORIVALI } from "@/lib/maps";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Eternity Banquet — Banquet Hall in Kandivali West & Borivali" },
+      { title: "Banquet Hall in Charkop & Borivali | Eternity Banquet" },
       {
         name: "description",
         content:
-          "Banquet halls in Kandivali West (Charkop) and Borivali West, Mumbai for weddings, birthdays, engagements and corporate events. Up to 1000 guests.",
+          "Wedding and party hall in Charkop, Kandivali West and Borivali West, Mumbai. Birthdays, haldi, engagements and corporate events for up to 1000 guests.",
       },
       { property: "og:title", content: "Eternity Banquet" },
       {
@@ -48,17 +48,17 @@ function Home() {
       <section className="relative min-h-[88vh] flex items-center">
         <img
           src="/decor/hero.webp"
-          alt="Eternity Banquet hall"
+          alt="Eternity Banquet hall in Charkop, Kandivali West, Mumbai"
           width={1920}
           height={1080}
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/80" />
         <div className="container-x relative text-white">
-          <p className="text-xs uppercase tracking-[0.3em] text-accent font-semibold mb-4">
-            Borivali &amp; Charkop, Mumbai
-          </p>
           <h1 className="font-display text-5xl md:text-7xl font-bold max-w-3xl leading-[1.05]">
+            <span className="block text-xs uppercase tracking-[0.3em] text-accent font-sans font-semibold mb-4 leading-normal">
+              Banquet &amp; Party Hall in Charkop, Kandivali West &amp; Borivali
+            </span>{" "}
             Where every <span className="text-gradient-gold">celebration</span> becomes a memory.
           </h1>
           <p className="mt-6 text-lg md:text-xl text-white/85 max-w-2xl">

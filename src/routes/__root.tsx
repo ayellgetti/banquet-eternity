@@ -72,11 +72,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Eternity Banquet — Banquet Hall in Kandivali West & Borivali" },
+      { title: "Banquet Hall in Charkop & Borivali | Eternity Banquet" },
       {
         name: "description",
         content:
-          "Banquet halls in Kandivali West (Charkop) and Borivali West, Mumbai for weddings, birthdays, engagements and corporate events — up to 1000 guests.",
+          "Wedding and party hall in Charkop, Kandivali West and Borivali West, Mumbai. Birthdays, haldi, engagements and corporate events for up to 1000 guests.",
       },
       { name: "author", content: "Eternity Banquet" },
       { property: "og:title", content: "Eternity Banquet" },

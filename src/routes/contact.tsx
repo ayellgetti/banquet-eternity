@@ -20,7 +20,7 @@ const CONTACTS = [
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Location — Eternity Banquet, Mumbai" },
+      { title: "Contact Our Banquet Halls in Charkop & Borivali" },
       {
         name: "description",
         content:
@@ -45,7 +45,7 @@ function Contact() {
       <Section
         h1
         eyebrow="Our Locations"
-        title="Visit either of our venues"
+        title="Banquet halls in Charkop & Borivali"
         subtitle={`Trusted in Borivali for ${HERITAGE_YEARS_BORIVALI} years — and now welcoming guests at our newly opened Charkop hall.`}
         center
       >

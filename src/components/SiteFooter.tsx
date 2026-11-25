@@ -51,6 +51,16 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
+              <Link to="/banquet-hall-charkop" className="hover:text-accent">
+                Banquet Hall in Charkop
+              </Link>
+            </li>
+            <li>
+              <Link to="/banquet-hall-borivali" className="hover:text-accent">
+                Banquet Hall in Borivali
+              </Link>
+            </li>
+            <li>
               <Link to="/enquiry" className="hover:text-accent">
                 Enquiry
               </Link>

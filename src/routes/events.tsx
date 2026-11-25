@@ -9,7 +9,7 @@ import { ArrowRight, Check } from "lucide-react";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Wedding & Event Venue in Mumbai — Eternity Banquet" },
+      { title: "Wedding & Party Hall in Charkop, Mumbai — Eternity Banquet" },
       {
         name: "description",
         content:
@@ -36,7 +36,7 @@ const inclusions = [
 function Events() {
   return (
     <>
-      <Section h1 eyebrow="Our Specialties" title="Events we host" center>
+      <Section h1 eyebrow="Our Specialties" title="Events we host in our banquet halls" center>
         <EventsCarousel />
       </Section>
 

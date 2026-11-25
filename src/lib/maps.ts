@@ -20,11 +20,11 @@ export const VENUES: VenueLocation[] = [
     tagline: "Sahyadri Nagar, Charkop",
     area: "Charkop, Kandivali West, Mumbai",
     address:
-      "Plot No. 93-A, 2nd Floor, Bank Of Baroda, Opp Sahyadri Nagar Hanuman Temple, Charkop Gaon, Kandivali West, Mumbai, Maharashtra 400068",
-    pincode: "400068",
+      "Plot No. 93-A, 2nd Floor, Bank Of Baroda, Opp Sahyadri Nagar Hanuman Temple, Charkop Gaon, Kandivali West, Mumbai, Maharashtra 400067",
+    pincode: "400067",
     mapsUrl: "https://maps.app.goo.gl/HheP6zr9LLzHH3M56",
     embedUrl:
-      "https://www.google.com/maps?q=Eternity+Banquet,+Charkop,+Kandivali+West,+Mumbai+400068&ll=19.2094992,72.8274876&z=17&output=embed",
+      "https://www.google.com/maps?q=Eternity+Banquet,+Charkop,+Kandivali+West,+Mumbai+400067&ll=19.2094992,72.8274876&z=17&output=embed",
     badge: "Newly opened",
     badgeTone: "new",
     capacity: "250–400 guests",

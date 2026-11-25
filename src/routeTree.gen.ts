@@ -17,6 +17,8 @@ import { Route as EventsRouteImport } from './routes/events'
 import { Route as EnquiryRouteImport } from './routes/enquiry'
 import { Route as DecorationsRouteImport } from './routes/decorations'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as BanquetHallCharkopRouteImport } from './routes/banquet-hall-charkop'
+import { Route as BanquetHallBorivaliRouteImport } from './routes/banquet-hall-borivali'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CustomOrderRouteImport } from './routes/custom/order'
@@ -63,6 +65,16 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BanquetHallCharkopRoute = BanquetHallCharkopRouteImport.update({
+  id: '/banquet-hall-charkop',
+  path: '/banquet-hall-charkop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BanquetHallBorivaliRoute = BanquetHallBorivaliRouteImport.update({
+  id: '/banquet-hall-borivali',
+  path: '/banquet-hall-borivali',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -92,6 +104,8 @@ const CustomChecklistRoute = CustomChecklistRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banquet-hall-borivali': typeof BanquetHallBorivaliRoute
+  '/banquet-hall-charkop': typeof BanquetHallCharkopRoute
   '/contact': typeof ContactRoute
   '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
@@ -107,6 +121,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banquet-hall-borivali': typeof BanquetHallBorivaliRoute
+  '/banquet-hall-charkop': typeof BanquetHallCharkopRoute
   '/contact': typeof ContactRoute
   '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
@@ -123,6 +139,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/banquet-hall-borivali': typeof BanquetHallBorivaliRoute
+  '/banquet-hall-charkop': typeof BanquetHallCharkopRoute
   '/contact': typeof ContactRoute
   '/decorations': typeof DecorationsRoute
   '/enquiry': typeof EnquiryRoute
@@ -140,6 +158,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/banquet-hall-borivali'
+    | '/banquet-hall-charkop'
     | '/contact'
     | '/decorations'
     | '/enquiry'
@@ -155,6 +175,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/banquet-hall-borivali'
+    | '/banquet-hall-charkop'
     | '/contact'
     | '/decorations'
     | '/enquiry'
@@ -170,6 +192,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/banquet-hall-borivali'
+    | '/banquet-hall-charkop'
     | '/contact'
     | '/decorations'
     | '/enquiry'
@@ -186,6 +210,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BanquetHallBorivaliRoute: typeof BanquetHallBorivaliRoute
+  BanquetHallCharkopRoute: typeof BanquetHallCharkopRoute
   ContactRoute: typeof ContactRoute
   DecorationsRoute: typeof DecorationsRoute
   EnquiryRoute: typeof EnquiryRoute
@@ -257,6 +283,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/banquet-hall-charkop': {
+      id: '/banquet-hall-charkop'
+      path: '/banquet-hall-charkop'
+      fullPath: '/banquet-hall-charkop'
+      preLoaderRoute: typeof BanquetHallCharkopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/banquet-hall-borivali': {
+      id: '/banquet-hall-borivali'
+      path: '/banquet-hall-borivali'
+      fullPath: '/banquet-hall-borivali'
+      preLoaderRoute: typeof BanquetHallBorivaliRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -298,6 +338,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BanquetHallBorivaliRoute: BanquetHallBorivaliRoute,
+  BanquetHallCharkopRoute: BanquetHallCharkopRoute,
   ContactRoute: ContactRoute,
   DecorationsRoute: DecorationsRoute,
   EnquiryRoute: EnquiryRoute,

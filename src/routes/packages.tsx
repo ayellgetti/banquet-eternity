@@ -25,7 +25,7 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/packages")({
   head: () => ({
     meta: [
-      { title: "Banquet Packages & Pricing — Eternity Banquet" },
+      { title: "Banquet Hall Packages & Prices in Mumbai — Eternity Banquet" },
       {
         name: "description",
         content:
@@ -178,7 +178,7 @@ function Packages() {
       <Section
         h1
         eyebrow="Packages & Pricing"
-        title="Everything we offer, at a glance"
+        title="Banquet hall packages & pricing"
         subtitle="Premium per-plate packages with hall rent and chairs included. Decoration is not included and is charged separately — plus optional décor, stage upgrades and add-on services."
         center
       >

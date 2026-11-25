@@ -12,6 +12,8 @@ export const Route = createFileRoute("/sitemap.xml")({
           "/about",
           "/packages",
           "/events",
+          "/banquet-hall-charkop",
+          "/banquet-hall-borivali",
           "/gallery",
           "/testimonials",
           "/enquiry",
